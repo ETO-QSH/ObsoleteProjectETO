@@ -1,0 +1,1 @@
+/give ETO minecraft:filled_map{map:0}
