@@ -1,0 +1,20 @@
+
+Private Sub Worksheet_BeforeRightClick(ByVal Target As Range, Cancel As Boolean)
+Cancel = True
+f = True
+End Sub
+Public f As Boolean
+Sub test()
+n = 45 '
+f = False
+Do
+Application.Wait Now + TimeValue("0:0:5")
+Application.Windows(1).SmallScroll 1
+i = i + 1
+If i = n Then
+Application.Windows(1).SmallScroll , n + 1
+i = 0
+End If
+DoEvents
+Loop Until f
+End Sub
