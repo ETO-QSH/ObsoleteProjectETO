@@ -117,27 +117,45 @@ def decrypt_file(encrypted_file_path, private_key):
 
 if __name__ == "__main__":
 
-    import os
+    import os, argparse
+    from pathlib import Path
 
-    # 文件路径和密钥密码
-    file_path = "Sprite-0001.png"
-    password = input('请输入密钥密码：')
-    key_password = password.encode('utf-8')
-    private_key_path = "private_key.pem"
-    public_key_path = "public_key.pem"
+    parser = argparse.ArgumentParser(description='RSA加解密')
+    parser.add_argument('-f', required=True, help='需要加密的文件')
+    parser.add_argument('-k', required=True, help='使用密钥的密码')
+    parser.add_argument('-m', required=True, help='加密:True 解密:False')
 
-    # 生成密钥对并保存
-    private_key, public_key = generate_keys()
-    save_keys(private_key, public_key, private_key_path, public_key_path, key_password)
+    args = parser.parse_args()
 
-    # 加密文件
-    encrypt_file(file_path, public_key)
+    if Path(args.f).is_file():
 
-    # 加载密钥
-    private_key, public_key = load_keys(private_key_path, public_key_path, key_password)
-    
-    # 解密文件
-    filepath, filename = os.path.split(file_path)
-    name, suffix = os.path.splitext(filename)
-    encrypted_file_path = os.path.join(filepath, name + '.enc')
-    decrypt_file(encrypted_file_path, private_key)
+        # 文件路径和密钥密码
+        file_path, password = args.f, args.k
+        key_password = password.encode('utf-8')
+        private_key_path = "private_key.pem"
+        public_key_path = "public_key.pem"
+
+        if args.m == 'True':
+
+            # 生成密钥对并保存
+            private_key, public_key = generate_keys()
+            save_keys(private_key, public_key, private_key_path, public_key_path, key_password)
+
+            # 加密文件
+            encrypt_file(file_path, public_key)
+
+        elif args.m == 'False':
+            
+            # 加载密钥
+            private_key, public_key = load_keys(private_key_path, public_key_path, key_password)
+
+            # 解密文件
+            filepath, filename = os.path.split(file_path)
+            name, suffix = os.path.splitext(filename)
+            encrypted_file_path = os.path.join(filepath, name + '.enc')
+            decrypt_file(encrypted_file_path, private_key)
+
+        else:
+            parser.print_help()
+    else:
+        parser.print_help()
