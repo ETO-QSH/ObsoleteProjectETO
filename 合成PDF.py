@@ -90,3 +90,30 @@ if __name__ == "__main__":
 #     writer.write(output_pdf)
 # 
 # print(f'PDF with image inserted successfully saved as {output_pdf_path}')
+
+
+
+# from PyPDF2 import PdfFileReader, PdfFileWriter
+# 
+# 
+# def split_single_pdf(read_file, start_page, end_page, pdf_file):
+#     fp_read_file = open(read_file, 'rb')
+#     pdf_input = PdfFileReader(fp_read_file)
+#     pdf_output = PdfFileWriter()
+#     for i in range(start_page, end_page):
+#         pdf_output.addPage(pdf_input.getPage(i))
+#     with open(pdf_file, 'wb') as pdf_out:
+#         pdf_output.write(pdf_out)
+#     print(f'{read_file}分割{start_page}页-{end_page}页完成，保存为{pdf_file}!')
+# 
+# 
+# if __name__ == '__main__':
+#     in_pdf_name = "专业2021版本科培养方案.pdf"
+#     out_pdf_name = '内容.pdf'
+#     start = 43
+#     end = 58
+#     split_single_pdf(in_pdf_name, start, end, out_pdf_name)
+
+
+
+
