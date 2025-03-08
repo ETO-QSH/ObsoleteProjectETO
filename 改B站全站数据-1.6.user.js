@@ -53,7 +53,7 @@
     const observer = new MutationObserver(() => {
         const isMySpace = window.location.href.startsWith(`https://space.bilibili.com/${config.mySpace.uid}`);
 
-        // 处理个人空间统计数据 (只修改一次)
+        // 处理个人空间统计数据
         if (isMySpace) {
             const stats = document.getElementsByClassName('nav-statistics__item-num');
             if (stats.length > 3) {
