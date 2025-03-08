@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         B站数据修改(精准版)
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/ETO-QSH/
 // @version      1.8
 // @description  精准修改个人空间数据及标题
 // @author       ETO
