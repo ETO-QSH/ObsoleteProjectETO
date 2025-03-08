@@ -41,8 +41,6 @@
         }
     };
 
-    let spaceModified = false; // 标记是否已修改空间数据
-
     const processElements = (className, rules) => {
         const elements = document.getElementsByClassName(className);
         Array.from(elements).forEach((el, index) => {
@@ -56,13 +54,12 @@
         const isMySpace = window.location.href.startsWith(`https://space.bilibili.com/${config.mySpace.uid}`);
 
         // 处理个人空间统计数据 (只修改一次)
-        if (isMySpace && !spaceModified) {
+        if (isMySpace) {
             const stats = document.getElementsByClassName('nav-statistics__item-num');
             if (stats.length > 3) {
                 stats[1].textContent = config.mySpace.stats[1];
                 stats[2].textContent = config.mySpace.stats[2];
                 stats[3].textContent = config.mySpace.stats[3];
-                spaceModified = true; // 标记已修改
             }
         }
 
