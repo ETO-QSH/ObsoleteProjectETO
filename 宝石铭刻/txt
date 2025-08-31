@@ -1,0 +1,87 @@
+我需要对一个游戏进行大模拟，有三种资源：卡槽，宝石，卡片
+
+一共有14种宝石，以下给出名字和价值对应：
+
+Nesre_iner_0，1
+Nesre_iner_1，2
+Nesre_iner_2，10
+Nesre_iner_3，35
+Nesre_iner_4，85
+Gabe_iner_0，1
+Gabe_iner_1，5
+Gabe_iner_2，50
+Gabe_iner_3，500
+Pet_iner_0，1
+Pet_iner_1，3
+Pet_iner_2，22
+Pet_iner_3，105
+Shay_iner_0，1
+
+卡片有多种效果，一共有13种卡片（宝石只能是整数，所有宝石数量计算为小数时按照四舍五入取整）：
+
+淬雕_1：将 Nesre_iner_0 转换为两倍的 Nesre_iner_1，默认生效时不占用工作台
+淬雕_2：将 Nesre_iner_1 转换为两倍的 Nesre_iner_2，默认生效不时占用工作台
+淬雕_3：将 Nesre_iner_2 转换为 2.4 倍的 Nesre_iner_3，默认生效时不占用工作台
+淬雕_4：将 Nesre_iner_3 转换为等量的 Nesre_iner_4，使用后最终工作台每剩余一个获得 5000 分
+
+滤纯_1：将 Gabe_iner_0 转换为一倍 Gabe_iner_1 和一倍 Shay_iner_0
+滤纯_2：将 Gabe_iner_1 转换为 80% 的 Gabe_iner_2 和 20% 的 Shay_iner_0，最后再给予转换 Gabe_iner_2 个数两倍的 Shay_iner_0
+滤纯_3：将 Gabe_iner_1 转换为 70% 的 Gabe_iner_3 和 30% 的 Shay_iner_0，最后再给予转换 Gabe_iner_3 个数两倍的 Shay_iner_0
+
+交糅_1：将已有的 Pet_iner_0 和 Shay_iner_0 数量求和后取 50% 后四舍五入转化为 Pet_iner_1，同时会使 Pet_iner 系列所有宝石价值 +5 
+交糅_2：将已有的 Pet_iner_1 和 Gabe_iner_1 数量求和后取 50% 后四舍五入转化为 Pet_iner_2，同时会使 Pet_iner 系列所有宝石价值 +15 
+交糅_3：将已有的 Pet_iner_2 和 Nesre_iner_3 数量求和后取 50% 后四舍五入转化为 Pet_iner_3，使用后如果最终宝石只有一种则额外获得 Pet_iner_3 * 100 分
+
+落晶_1：将 Shay_iner_0 数量 *5
+落晶_2：将 Shay_iner_0 数量 *8
+落晶_3：将 Shay_iner_0 数量 *9，使用后 Shay_iner_0 价值 +1
+
+
+游戏开始时会告知工作台数量并提供基础的四种宝石各数个 (workspace, (Nesre_iner_0，Gabe_iner_0，Pet_iner_0，Shay_iner_0)) 
+需要做的就是选择最多 workspace 数量的卡片，按照移动的顺序依次执行卡片效果，淬雕_1、淬雕_2、淬雕_3 如果未被选择，就将在一开始生效，不占用工作台
+最后加和剩余所有宝石价值，以及 淬雕_4和交糅_3 可能的加分得出总分
+
+工作台数量为 2-6，可不可以遍历所有的可能卡片排列，给出前三名的卡片排序、最终宝石和得分，以及第一名的卡片执行全过程
+
+我希望使用 Python 实现整个大模拟
+
+
+
+"D:\Work Files\examine\.venv\Scripts\python.exe" "D:\Work Files\examine\main.py" 
+工作台数量：2
+初始宝石： {'Nesre_iner_0': 21, 'Gabe_iner_0': 32, 'Pet_iner_0': 28, 'Shay_iner_0': 19}
+
+====================================================================================================
+
+第 1 名
+卡片顺序： ['淬雕_4']
+最终宝石： {'Nesre_iner_0': 0, 'Gabe_iner_0': 32, 'Pet_iner_0': 28, 'Shay_iner_0': 19, 'Nesre_iner_1': 0, 'Nesre_iner_2': 0, 'Nesre_iner_3': 0, 'Nesre_iner_4': 202}
+总得分： 22249
+----------------------------------------
+第 2 名
+卡片顺序： ['滤纯_1', '滤纯_3']
+最终宝石： {'Nesre_iner_0': 0, 'Gabe_iner_0': 0, 'Pet_iner_0': 28, 'Shay_iner_0': 127, 'Nesre_iner_1': 0, 'Nesre_iner_2': 0, 'Nesre_iner_3': 202, 'Gabe_iner_1': 0, 'Gabe_iner_3': 22}
+总得分： 18225
+----------------------------------------
+第 3 名
+卡片顺序： ['淬雕_4', '落晶_3']
+最终宝石： {'Nesre_iner_0': 0, 'Gabe_iner_0': 32, 'Pet_iner_0': 28, 'Shay_iner_0': 171, 'Nesre_iner_1': 0, 'Nesre_iner_2': 0, 'Nesre_iner_3': 0, 'Nesre_iner_4': 202}
+总得分： 17572
+----------------------------------------
+
+【第一名详细过程】
+执行：淬雕_1
+  转换 21 Nesre_iner_0 → 42 Nesre_iner_1
+执行：淬雕_2
+  转换 42 Nesre_iner_1 → 84 Nesre_iner_2
+执行：淬雕_3
+  转换 84 Nesre_iner_2 → 202 Nesre_iner_3
+执行：淬雕_4
+  转换 202 Nesre_iner_3 → 202 Nesre_iner_4
+
+====================================================================================================
+
+最终宝石： {'Nesre_iner_0': 0, 'Gabe_iner_0': 32, 'Pet_iner_0': 28, 'Shay_iner_0': 19, 'Nesre_iner_1': 0, 'Nesre_iner_2': 0, 'Nesre_iner_3': 0, 'Nesre_iner_4': 202}
+总得分： 22249
+
+Process finished with exit code 0
