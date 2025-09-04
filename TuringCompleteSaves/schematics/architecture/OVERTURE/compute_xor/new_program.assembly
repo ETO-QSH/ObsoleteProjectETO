@@ -1,0 +1,13 @@
+cp|in|1
+cp|in|2
+
+nand
+
+cp|3*8|4
+or
+
+cp|3*8|1
+cp|4*8|2
+
+and
+cp|3*8|out

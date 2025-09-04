@@ -1,0 +1,31 @@
+i|j|add 0 0 io
+i|j|add 0 1 io
+i|j|add 0 0 io
+i|j|add 0 1 io
+i|j|add 0 1 io
+i|j|add 0 1 io
+i|j|add 0 1 io
+i|j|add 0 0 io
+i|j|add 0 1 io
+i|j|add 0 2 io
+i|j|add 0 1 io
+
+i|j|add 92 0 5
+
+label eto
+j|add io 0 1
+eq 5 1 wait
+
+lw 1 0 2
+eq 5 2 wait
+
+neq 2 4 break
+sw 1 1 0
+
+label wait
+i|j|add 0 3 io
+eq 0 0 eto
+
+label break
+i|j|add 0 2 io
+i|j|add 0 4 io

@@ -1,0 +1,8 @@
+1
+cp|2
+label eto
+cp|3*8|out
+cp|3*8|1
+cal_add
+eto
+always
