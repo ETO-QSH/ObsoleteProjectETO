@@ -1,6 +1,0 @@
-label eto
-
-j|sub io 1 1
-j|mod 1 4 io
-
-eq 0 0 eto
