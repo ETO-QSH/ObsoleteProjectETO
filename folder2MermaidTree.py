@@ -113,5 +113,6 @@ def folder_to_png(folder_path: str, max_depth: int = -1, exclude: Optional[List[
 
 
 if __name__ == '__main__':
-    excludes = ['.git', '.idea', '.venv', '~$2Hz杯”2025届海事编程马拉松大赛决赛题目.docx']
+    excludes = ['.git', '.idea', '.venv', '~xxxxx.docx']
     print(folder_to_png(r'./', exclude=excludes))
+
