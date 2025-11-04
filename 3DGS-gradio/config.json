@@ -1,0 +1,82 @@
+{
+    "3DGS": {
+        "model": {
+            "source_path": "",
+            "model_path": "",
+            "sh_degree": 3,
+            "white_background": false,
+            "images": "images",
+            "resolution": 1,
+            "data_device": "cuda"
+        },
+        "opt": {
+            "iterations": 30000,
+            "position_lr_init": 0.00016,
+            "position_lr_final": 1.6e-06,
+            "position_lr_delay_mult": 0.01,
+            "position_lr_max_steps": 30000,
+            "feature_lr": 0.0025,
+            "opacity_lr": 0.05,
+            "scaling_lr": 0.005,
+            "rotation_lr": 0.001,
+            "densification_interval": 100,
+            "opacity_reset_interval": 3000,
+            "densify_from_iter": 500,
+            "densify_until_iter": 15000,
+            "densify_grad_threshold": 0.0002,
+            "lambda_dssim": 0.2
+        },
+        "pipe": {
+            "convert_SHs_python": false,
+            "compute_cov3D_python": false,
+            "debug": false
+        },
+        "train": {
+            "ip": "127.0.0.1",
+            "port": 6009,
+            "debug_from": -1,
+            "detect_anomaly": false,
+            "test_iterations": [
+                7000,
+                30000
+            ],
+            "save_iterations": [
+                7000,
+                30000
+            ],
+            "checkpoint_iterations": [],
+            "start_checkpoint": null,
+            "quiet": false
+        }
+    },
+    "LGS A": {
+
+    },
+    "FreGS": {
+
+    },
+    "SfM-Free": {
+
+    },
+    "DivShot": {
+        "data": {
+            "inputPath": "",
+            "maxImageWidth": 4096,
+            "maxImageHeight": 4096
+        },
+        "model": {
+            "modelType": 0,
+            "densifyStrategy": 2,
+            "maxIteration": 30000,
+            "loadStep": -1
+        },
+        "export": {
+            "outputPath": "./data/divshot/iteration",
+            "exportMesh": 0
+        },
+        "quality": {
+            "mipAntiliased": 0,
+            "packLevel": 0
+        }
+    }
+}
