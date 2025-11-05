@@ -1,6 +1,7 @@
 import os
 import re
 import sys
+import json
 import time
 import queue
 import threading
@@ -13,6 +14,9 @@ TRAIN_PROC = None
 FINAL_MODEL_PATH = None
 LOG_QUEUE = queue.Queue()
 
+with open("external.json", "r", encoding="utf-8") as ex:
+    external = json.load(ex)
+
 
 def extract_frames(video_path, fps):
     global TRAIN_PROC
@@ -24,7 +28,7 @@ def extract_frames(video_path, fps):
     images_path = os.path.join("./data", 'split')
     os.makedirs(images_path, exist_ok=True)
 
-    ffmpeg_exe = r"bin\ffmpeg.exe"
+    ffmpeg_exe = external["ffmpeg"]["PATH"]
     if not os.path.isfile(ffmpeg_exe):
         gr.Warning("ffmpeg 未找到")
         raise FileNotFoundError(f"ffmpeg 未找到：{ffmpeg_exe}")
@@ -33,6 +37,7 @@ def extract_frames(video_path, fps):
         ffmpeg_exe, "-i", video_path, "-qscale:v", "1", "-qmin", "1",
         "-vf", f"fps={fps}", os.path.join(images_path, "%04d.jpg")
     ]
+    log_line(str(cmd))
 
     try:
         TRAIN_PROC = subprocess.Popen(cmd)
@@ -48,11 +53,20 @@ def convert_frames(images_path):
     global TRAIN_PROC
 
     try:
-        TRAIN_PROC = subprocess.Popen([sys.executable, "convert.py", "-s", images_path])
+        cmd = [sys.executable, "convert.py", "-s", images_path]
+        # cmd = [
+        #     os.path.join(external["3DGS"]["ROOT"], "convert.bat"),
+        #     external["3DGS"]["ENVS"],
+        #     os.path.abspath(images_path)
+        # ]
+        log_line(str(cmd))
+
+        TRAIN_PROC = subprocess.Popen(cmd)
         TRAIN_PROC.wait()
+
     except Exception as e:
-        gr.Error("姿态结算出错")
-        raise RuntimeError(f"姿态结算出错：{e}")
+        gr.Error("特征提取出错")
+        raise RuntimeError(f"特征提取出错：{e}")
 
 
 def log_line(text):
@@ -89,7 +103,7 @@ def make_training_filter():
     return should_output
 
 
-def run_train_3dgs(source_video, fps, rounds, exp_name):
+def run_train_3dgs(source_video, fps, rounds, exp_name, json):
     global TRAIN_PROC, FINAL_MODEL_PATH, FLAG_LOCK
     log_line("开始进行视频转3D高斯模型")
 
@@ -111,6 +125,15 @@ def run_train_3dgs(source_video, fps, rounds, exp_name):
         sys.executable, "train.py", "-s", images_folder, "-m", os.path.join("output", "3dgs", exp_name),
         "--iterations", str(int(rounds)), "--quiet", "--port", "0"
     ]
+    # cmd = [
+    #     os.path.join(external["3DGS"]["ROOT"], "train.bat"),
+    #     external["3DGS"]["ENVS"],
+    #     os.path.abspath(images_folder),
+    #     os.path.abspath(os.path.join("output", "3dgs", exp_name)),
+    #     str(int(rounds))
+    # ]
+    # if json:
+    #     cmd += ["--json", os.path.abspath("config.json"), "--key", "3DGS"]
     log_line(str(cmd))
 
     TRAIN_PROC = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8")
@@ -144,17 +167,20 @@ def run_train_3dgs(source_video, fps, rounds, exp_name):
     log_line("模型训练结束")
 
 
-def _start_train(video, fps, rounds, exp):
+def _start_train(video, fps, rounds, exp, json):
+    global FINAL_MODEL_PATH
+
     if not video:
         gr.Warning("请先上传视频")
         return None
 
     if "3DGS" in MODEL_PATHS:
         del MODEL_PATHS["3DGS"]
+    FINAL_MODEL_PATH = None
 
     LOG_QUEUE.queue.clear()
     LOG_QUEUE.put("CLEAR_TOKEN")
-    threading.Thread(target=run_train_3dgs, args=(video, fps, rounds, exp), daemon=True).start()
+    threading.Thread(target=run_train_3dgs, args=(video, fps, rounds, exp, json), daemon=True).start()
 
 
 def _stop_train():

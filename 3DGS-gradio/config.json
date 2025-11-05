@@ -1,8 +1,6 @@
 {
     "3DGS": {
         "model": {
-            "source_path": "",
-            "model_path": "",
             "sh_degree": 3,
             "white_background": false,
             "images": "images",

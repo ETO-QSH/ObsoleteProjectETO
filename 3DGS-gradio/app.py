@@ -31,7 +31,7 @@ with gr.Blocks(title="3DGS-show WebUI", css=css) as app:
 
             with gr.Row():
                 video_input = gr.Video(label="上传视频（拖拽或点击）", sources=["upload", "webcam"], scale=1)
-                loading_3d = r"res/thermal-ex_from_arknights.glb"
+                loading_3d = r"res/bee_minecraft.glb"
 
                 with gr.Column(scale=2):
                     with gr.Tabs():
@@ -56,7 +56,7 @@ with gr.Blocks(title="3DGS-show WebUI", css=css) as app:
                     model = gr.Dropdown(label="运行算法", choices=list(models.keys()), value="3DGS", interactive=True)
                     fps = gr.Slider(minimum=0, maximum=15, step=0.5, label="提取帧率", value=3, interactive=True)
                     round = gr.Slider(minimum=0, maximum=100000, step=1000, label="训练轮数", value=30000, interactive=True)
-                    setting = gr.Checkbox(label="采用详细参数配置", interactive=False, value=False, show_label=True)
+                    setting = gr.Checkbox(label="采用详细参数配置", interactive=True, value=False, show_label=True)
 
             with gr.Row():
                 output_info = gr.Textbox(label="训练日志", interactive=False, value="", elem_id="logbox", max_lines=32)
@@ -86,16 +86,16 @@ with gr.Blocks(title="3DGS-show WebUI", css=css) as app:
 
             app.load(poll_queue, outputs=output_info, every=0.5)
 
-            def start_train_ui(video, fps, round, exp):
+            def start_train_ui(video, fps, round, exp, json):
                 if video is None:
                     gr.Warning("请先上传视频")
                     return [gr.update(), gr.update(), gr.update()]
-                _start_train(video, fps, round, exp)
-                return [gr.update(interactive=False), gr.update(interactive=True), gr.update(value=loading_3d, visible=True)]
+                _start_train(video, fps, round, exp, json)
+                return [gr.update(interactive=False), gr.update(interactive=True), gr.update(value=loading_3d)]
 
             run_train.click(
                 fn=start_train_ui,
-                inputs=[video_input, fps, round, exp],
+                inputs=[video_input, fps, round, exp, setting],
                 outputs=[run_train, stop_train, models[model.value]]
             )
 

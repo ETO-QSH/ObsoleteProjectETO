@@ -1,0 +1,9 @@
+{
+    "3DGS": {
+        "ROOT": "D:\\Desktop\\Desktop\\gradio-test",
+        "ENVS": "gaussian_splatting"
+    },
+    "ffmpeg": {
+        "PATH": "D:\\Desktop\\Desktop\\gradio-test\\bin"
+    }
+}
