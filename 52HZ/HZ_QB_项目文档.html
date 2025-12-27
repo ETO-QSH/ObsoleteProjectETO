@@ -1,0 +1,558 @@
+<!DOCTYPE html><html><head>
+      <title>HZ_QB_项目文档</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\ETO\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.18\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      <script type="text/javascript" src="file:///c:\Users\ETO\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.18\crossnote\dependencies\mermaid\mermaid.min.js" charset="UTF-8"></script>
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<style>
+.mermaid {
+  display: flex;
+  justify-content: center;
+}
+</style>
+<h1 align="center">
+  上海港集装箱港区拥堵预测<br>
+  <span style="font-size: 0.67em;">
+    伪代码 + 流程图 + 说明文字
+  </span>
+</h1>
+<blockquote>
+<p><strong>版本</strong>：v2.0<br>
+<strong>作者</strong>：ETO-QSH<br>
+<strong>时间</strong>：2025-08-06<br>
+<strong>说明</strong>：本文档面向 2025 年 8 月上海港集装箱港区拥堵预测，采用 “宏观-事件-微观” 三级递进算法，遵循 IMO-FSA、ISO-31000、IALA-G1118 等行业规范。</p>
+</blockquote>
+<hr>
+<h2 id="目录">目录 </h2>
+<ol>
+<li><a href="#%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF">项目背景</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E8%B5%84%E4%BA%A7">数据资产</a></li>
+<li><a href="#%E6%8B%A5%E5%A0%B5%E5%AE%9A%E4%B9%89">拥堵定义</a></li>
+<li><a href="#%E6%80%BB%E4%BD%93%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF">总体技术路线</a></li>
+<li><a href="#%E4%B8%89%E7%BA%A7%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3">三级算法详解</a><br>
+5.1 L1 宏观长期：Prophet-XGBoost 双残差<br>
+5.2 L2 事件修正：Bayesian Structural VAR<br>
+5.3 L3 微观短期：Spatio-Temporal Transformer</li>
+<li><a href="#%E6%A8%A1%E5%9E%8B%E8%9E%8D%E5%90%88%E4%B8%8E%E7%BD%AE%E4%BF%A1%E5%8C%BA%E9%97%B4">模型融合与置信区间</a></li>
+<li><a href="#%E7%BB%93%E6%9E%9C%E5%8F%AF%E8%A7%86%E5%8C%96">结果可视化</a></li>
+<li><a href="#%E8%A1%8C%E4%B8%9A%E5%AF%B9%E6%A0%87">行业对标</a></li>
+<li><a href="#%E9%99%84%E5%BD%95">附录</a></li>
+</ol>
+<hr>
+<h2 id="1-项目背景">1. 项目背景 </h2>
+<ul>
+<li><strong>痛点</strong>：上海港 2024 年吞吐量 4900 万 TEU，2025 年预计 5050 万 TEU (+3.5 %)。极端天气、关税跳变、北美补货季导致拥堵呈强非线性。</li>
+<li><strong>目标</strong>：提前 30 天输出 2025-08 逐小时 <strong>Queue Length (QL)</strong> 与 <strong>Waiting Time (WT)</strong> 概率分布，支撑船公司 ETA 更新、集卡预约、泊位检修排程。</li>
+<li><strong>约束</strong>：算法需可解释、可追溯、可复现，并通过 IMO/IALA 合规审查。</li>
+</ul>
+<hr>
+<h2 id="2-数据资产">2. 数据资产 </h2>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>数据</th>
+<th>粒度</th>
+<th>时间跨度</th>
+<th>关键字段</th>
+<th>更新频率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AIS 动态</strong></td>
+<td>全球集装箱船报文</td>
+<td>1 s</td>
+<td>2015-01-01 – 实时</td>
+<td>MMSI, SOG, COG, draught, lon, lat</td>
+<td>流式</td>
+</tr>
+<tr>
+<td><strong>港口作业</strong></td>
+<td>TOS 预约 &amp; 实际靠离</td>
+<td>1 min</td>
+<td>2015-01-01 – 实时</td>
+<td>泊位代码, ETA/ATB/ATD, TEU, 桥吊数</td>
+<td>流式</td>
+</tr>
+<tr>
+<td><strong>集装箱预约</strong></td>
+<td>EDI 报文</td>
+<td>1 h</td>
+<td>2015-01-01 – 实时</td>
+<td>提单号, 箱型, 数量, ETA, 船公司</td>
+<td>1 h</td>
+</tr>
+<tr>
+<td><strong>宏观经济</strong></td>
+<td>IMF 全球 GDP、BDI、关税税率</td>
+<td>月</td>
+<td>2015-01 – 2025-12</td>
+<td>GDP YoY, BDI, tariff_rate</td>
+<td>月</td>
+</tr>
+<tr>
+<td><strong>季节事件</strong></td>
+<td>节假日、北美补货旺季</td>
+<td>事件</td>
+<td>2015-01 – 2025-12</td>
+<td>端午、Prime Day、黑五</td>
+<td>年历</td>
+</tr>
+<tr>
+<td><strong>天气</strong></td>
+<td>ECMWF 高分辨率预报</td>
+<td>1 h</td>
+<td>2015-01 – 2025-08-31</td>
+<td>风速、能见度、台风路径</td>
+<td>6 h</td>
+</tr>
+<tr>
+<td><strong>外部冲击</strong></td>
+<td>运河拥堵、罢工</td>
+<td>事件</td>
+<td>2015-01 – 实时</td>
+<td>苏伊士拥堵天数</td>
+<td>实时</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="3-拥堵定义">3. 拥堵定义 </h2>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>公式</th>
+<th>轻度拥堵</th>
+<th>重度拥堵</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Queue Length QL</strong></td>
+<td>锚地 + 等待区船舶数</td>
+<td>≥10 艘</td>
+<td>≥20 艘</td>
+</tr>
+<tr>
+<td><strong>Waiting Time WT</strong></td>
+<td>锚地到第一档靠泊</td>
+<td>≥6 h</td>
+<td>≥12 h</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="4-总体技术路线">4. 总体技术路线 </h2>
+<div class="mermaid">flowchart LR
+    A[全量数据湖] --&gt;|Delta Lake| B[Feature Store]
+    B --&gt; C[L1 宏观长期&lt;br&gt;Prophet-XGBoost]
+    C --&gt; D[日平均 QL 基线]
+    D --&gt; E[L2 事件修正&lt;br&gt;Bayesian SVAR]
+    E --&gt; F[日级 QL 期望]
+    F --&gt; G[L3 微观短期&lt;br&gt;Spatio-Temporal Transformer + DES]
+    G --&gt; H[逐小时 QL 分布 &amp; P 拥堵]
+    H --&gt; I[可视化 &amp; API]
+    I --&gt; J[船公司/集卡/港调]
+</div><hr>
+<h2 id="5-三级算法详解">5. 三级算法详解 </h2>
+<h3 id="51-l1-宏观长期prophet-xgboost-双残差">5.1 L1 宏观长期：Prophet-XGBoost 双残差 </h3>
+<h4 id="511-目标">5.1.1 目标 </h4>
+<p>预测 2025-08 每日平均 QL。</p>
+<h4 id="512-特征">5.1.2 特征 </h4>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>变量</th>
+<th>变换</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>时间</td>
+<td>年、月、周、节假日</td>
+<td>Prophet Fourier order=10</td>
+</tr>
+<tr>
+<td>宏观</td>
+<td>IMF 全球 GDP YoY, BDI, tariff_rate</td>
+<td>一阶差分</td>
+</tr>
+<tr>
+<td>港口</td>
+<td>月度吞吐量, 泊位检修天数</td>
+<td>标准化</td>
+</tr>
+<tr>
+<td>外部</td>
+<td>台风频次, 美西拥堵指数</td>
+<td>累计</td>
+</tr>
+</tbody>
+</table>
+<h4 id="513-伪代码">5.1.3 伪代码 </h4>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> prophet <span class="token keyword keyword-import">import</span> Prophet
+<span class="token keyword keyword-from">from</span> xgboost <span class="token keyword keyword-import">import</span> XGBRegressor
+<span class="token keyword keyword-import">import</span> pandas <span class="token keyword keyword-as">as</span> pd
+
+<span class="token comment"># 1. 数据</span>
+df <span class="token operator">=</span> load_monthly<span class="token punctuation">(</span><span class="token punctuation">)</span>
+df<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span> <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token string">'daily_avg_ql'</span><span class="token punctuation">]</span>
+df<span class="token punctuation">[</span><span class="token string">'ds'</span><span class="token punctuation">]</span> <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span>
+
+<span class="token comment"># 2. Prophet</span>
+m <span class="token operator">=</span> Prophet<span class="token punctuation">(</span>yearly_seasonality<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> holidays<span class="token operator">=</span>china_holidays<span class="token punctuation">)</span>
+<span class="token keyword keyword-for">for</span> col <span class="token keyword keyword-in">in</span> <span class="token punctuation">[</span><span class="token string">'gdp_yoy'</span><span class="token punctuation">,</span> <span class="token string">'bdi'</span><span class="token punctuation">,</span> <span class="token string">'typhoon_cnt'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+    m<span class="token punctuation">.</span>add_regressor<span class="token punctuation">(</span>col<span class="token punctuation">)</span>
+m<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>df<span class="token punctuation">)</span>
+
+future <span class="token operator">=</span> m<span class="token punctuation">.</span>make_future_dataframe<span class="token punctuation">(</span>periods<span class="token operator">=</span><span class="token number">31</span><span class="token punctuation">,</span> freq<span class="token operator">=</span><span class="token string">'D'</span><span class="token punctuation">)</span>
+future<span class="token punctuation">.</span>update<span class="token punctuation">(</span>load_macro_2025_08<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 2025-08 宏观</span>
+prophet_pred <span class="token operator">=</span> m<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>future<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'yhat'</span><span class="token punctuation">]</span>
+
+<span class="token comment"># 3. XGBoost 残差</span>
+X <span class="token operator">=</span> df<span class="token punctuation">[</span>macro_features<span class="token punctuation">]</span>
+y_resid <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span> <span class="token operator">-</span> prophet_pred_train
+xgb <span class="token operator">=</span> XGBRegressor<span class="token punctuation">(</span>n_estimators<span class="token operator">=</span><span class="token number">500</span><span class="token punctuation">,</span> max_depth<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">,</span> learning_rate<span class="token operator">=</span><span class="token number">0.03</span><span class="token punctuation">)</span>
+xgb<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X<span class="token punctuation">,</span> y_resid<span class="token punctuation">)</span>
+
+resid <span class="token operator">=</span> xgb<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>future<span class="token punctuation">[</span>macro_features<span class="token punctuation">]</span><span class="token punctuation">)</span>
+daily_ql <span class="token operator">=</span> prophet_pred <span class="token operator">+</span> resid
+</code></pre><h4 id="514-验证">5.1.4 验证 </h4>
+<ul>
+<li>使用历史数据回测。</li>
+</ul>
+<hr>
+<h3 id="52-l2-事件修正bayesian-structural-var">5.2 L2 事件修正：Bayesian Structural VAR </h3>
+<h4 id="521-内生向量">5.2.1 内生向量 </h4>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi mathvariant="bold">Y</mi><mi>t</mi></msub><mo>=</mo><mo stretchy="false">[</mo><msub><mrow><mi mathvariant="normal">Q</mi><mi mathvariant="normal">L</mi></mrow><mi>t</mi></msub><mo separator="true">,</mo><msub><mrow><mi mathvariant="normal">W</mi><mi mathvariant="normal">T</mi></mrow><mi>t</mi></msub><mo separator="true">,</mo><msub><mrow><mi mathvariant="normal">T</mi><mi mathvariant="normal">E</mi><msub><mi mathvariant="normal">U</mi><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi></mrow></msub></mrow><mi>t</mi></msub><mo separator="true">,</mo><msub><mrow><mi mathvariant="normal">T</mi><mi mathvariant="normal">E</mi><msub><mi mathvariant="normal">U</mi><mrow><mi mathvariant="normal">o</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">t</mi></mrow></msub></mrow><mi>t</mi></msub><msup><mo stretchy="false">]</mo><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">\mathbf{Y}_t = [\mathrm{QL}_t, \mathrm{WT}_t, \mathrm{TEU_{in}}_t, \mathrm{TEU_{out}}_t]^T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8361em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathbf" style="margin-right:0.02875em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0288em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1413em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord"><span class="mord mathrm">QL</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1864em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">WT</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">TE</span><span class="mord"><span class="mord mathrm">U</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3175em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathrm mtight">in</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2309em;"><span style="top:-2.5003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1997em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">TE</span><span class="mord"><span class="mord mathrm">U</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathrm mtight">out</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2309em;"><span style="top:-2.5003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1997em;"><span></span></span></span></span></span></span><span class="mclose"><span class="mclose">]</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<h4 id="522-外生冲击">5.2.2 外生冲击 </h4>
+<ul>
+<li>关税跳变：2025-08-15 美线 7.5 %→25 %</li>
+<li>台风：ECMWF 25 成员 → 概率加权</li>
+<li>端午节假日：dummy=1，乘子 1.35</li>
+<li>港口罢工 / 航道阻塞：节点移除 / 通路移除</li>
+</ul>
+<h4 id="523-伪代码">5.2.3 伪代码 </h4>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-import">import</span> pymc <span class="token keyword keyword-as">as</span> pm
+<span class="token keyword keyword-with">with</span> pm<span class="token punctuation">.</span>Model<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword keyword-as">as</span> model<span class="token punctuation">:</span>
+    <span class="token comment"># Minnesota prior</span>
+    beta <span class="token operator">=</span> pm<span class="token punctuation">.</span>Normal<span class="token punctuation">(</span><span class="token string">'beta'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> sigma<span class="token operator">=</span><span class="token number">0.2</span><span class="token punctuation">,</span> shape<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token operator">*</span>P<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    Sigma <span class="token operator">=</span> pm<span class="token punctuation">.</span>Wishart<span class="token punctuation">(</span><span class="token string">'Sigma'</span><span class="token punctuation">,</span> nu<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> V<span class="token operator">=</span>np<span class="token punctuation">.</span>eye<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    Y_obs <span class="token operator">=</span> pm<span class="token punctuation">.</span>MvNormal<span class="token punctuation">(</span><span class="token string">'Y_obs'</span><span class="token punctuation">,</span> mu<span class="token operator">=</span>Y_hat<span class="token punctuation">,</span> cov<span class="token operator">=</span>Sigma<span class="token punctuation">,</span> observed<span class="token operator">=</span>Y<span class="token punctuation">)</span>
+    trace <span class="token operator">=</span> pm<span class="token punctuation">.</span>sample<span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">,</span> target_accept<span class="token operator">=</span><span class="token number">0.9</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 脉冲响应</span>
+irf <span class="token operator">=</span> pm<span class="token punctuation">.</span>stats<span class="token punctuation">.</span>impulse_response<span class="token punctuation">(</span>model<span class="token punctuation">,</span> trace<span class="token punctuation">,</span> shocks<span class="token operator">=</span>event_df<span class="token punctuation">)</span>
+adj <span class="token operator">=</span> irf<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>  <span class="token comment"># 日级调整量</span>
+daily_ql <span class="token operator">*=</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> adj<span class="token punctuation">)</span>
+</code></pre><hr>
+<h3 id="53-l3-微观短期spatio-temporal-transformer--离散事件仿真-des">5.3 L3 微观短期：Spatio-Temporal Transformer + 离散事件仿真 (DES) </h3>
+<h4 id="531-网络输入">5.3.1 网络输入 </h4>
+<ul>
+<li><strong>空间图</strong>：泊位-锚地拓扑，邻接矩阵 A∈ℝⁿˣⁿ</li>
+<li><strong>时间序列</strong>：过去 72 h 特征 → 未来 72 h 逐小时 QL</li>
+<li><strong>特征维度</strong>：d_model=256，heads=8，layers=6</li>
+</ul>
+<h4 id="532-transformer-伪代码">5.3.2 Transformer 伪代码 </h4>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-class">class</span> <span class="token class-name">STTransformer</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> d_model<span class="token punctuation">,</span> n_heads<span class="token punctuation">,</span> n_layers<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>spatial <span class="token operator">=</span> GATConv<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> d_model<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>temporal <span class="token operator">=</span> nn<span class="token punctuation">.</span>TransformerEncoder<span class="token punctuation">(</span>
+            nn<span class="token punctuation">.</span>TransformerEncoderLayer<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> n_heads<span class="token punctuation">)</span><span class="token punctuation">,</span> n_layers<span class="token punctuation">)</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">,</span> A<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># x: (T, N, F)</span>
+        x <span class="token operator">=</span> self<span class="token punctuation">.</span>spatial<span class="token punctuation">(</span>x<span class="token punctuation">,</span> A<span class="token punctuation">)</span>      <span class="token comment"># 空间注意力</span>
+        x <span class="token operator">=</span> self<span class="token punctuation">.</span>temporal<span class="token punctuation">(</span>x<span class="token punctuation">)</span>        <span class="token comment"># 时间注意力</span>
+        <span class="token keyword keyword-return">return</span> x<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">72</span><span class="token punctuation">:</span><span class="token punctuation">]</span>              <span class="token comment"># 未来 72 h</span>
+
+model <span class="token operator">=</span> STTransformer<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+train_loader <span class="token operator">=</span> DataLoader<span class="token punctuation">(</span>dataset<span class="token punctuation">,</span> batch<span class="token operator">=</span><span class="token number">64</span><span class="token punctuation">)</span>
+trainer <span class="token operator">=</span> pl<span class="token punctuation">.</span>Trainer<span class="token punctuation">(</span>gpus<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> max_epochs<span class="token operator">=</span><span class="token number">200</span><span class="token punctuation">)</span>
+trainer<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>model<span class="token punctuation">,</span> train_loader<span class="token punctuation">)</span>
+</code></pre><h4 id="533-des-精细化仿真">5.3.3 DES 精细化仿真 </h4>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-import">import</span> simpy
+env <span class="token operator">=</span> simpy<span class="token punctuation">.</span>Environment<span class="token punctuation">(</span><span class="token punctuation">)</span>
+berth <span class="token operator">=</span> simpy<span class="token punctuation">.</span>Resource<span class="token punctuation">(</span>env<span class="token punctuation">,</span> capacity<span class="token operator">=</span><span class="token number">52</span><span class="token punctuation">)</span>
+
+<span class="token keyword keyword-def">def</span> <span class="token function">ship_process</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> mmsi<span class="token punctuation">,</span> eta<span class="token punctuation">,</span> teu<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-yield">yield</span> env<span class="token punctuation">.</span>timeout<span class="token punctuation">(</span><span class="token punctuation">(</span>eta <span class="token operator">-</span> env<span class="token punctuation">.</span>now<span class="token punctuation">)</span><span class="token punctuation">.</span>seconds<span class="token operator">/</span><span class="token number">3600</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-if">if</span> berth<span class="token punctuation">.</span>count <span class="token operator">&lt;</span> berth<span class="token punctuation">.</span>capacity<span class="token punctuation">:</span>
+        <span class="token keyword keyword-with">with</span> berth<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword keyword-as">as</span> req<span class="token punctuation">:</span>
+            <span class="token keyword keyword-yield">yield</span> req
+            ops_time <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>gamma<span class="token punctuation">(</span>teu<span class="token operator">/</span><span class="token number">300</span><span class="token punctuation">,</span> <span class="token number">1.1</span><span class="token punctuation">)</span>
+            <span class="token keyword keyword-yield">yield</span> env<span class="token punctuation">.</span>timeout<span class="token punctuation">(</span>ops_time<span class="token punctuation">)</span>
+    <span class="token keyword keyword-else">else</span><span class="token punctuation">:</span>
+        queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>mmsi<span class="token punctuation">)</span>
+        <span class="token keyword keyword-yield">yield</span> queue_event
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment"># 蒙特卡洛 1000 次</span>
+<span class="token keyword keyword-for">for</span> run <span class="token keyword keyword-in">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    env<span class="token punctuation">.</span>run<span class="token punctuation">(</span>until<span class="token operator">=</span><span class="token number">31</span><span class="token operator">*</span><span class="token number">24</span><span class="token punctuation">)</span>
+hourly_ql_dist <span class="token operator">=</span> collect_stats<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><h3 id="54-l3-s-多港联动短期修正port-cascade-layer">5.4 L3-S 多港联动短期修正（Port-Cascade Layer） </h3>
+<h4 id="541-场景描述">5.4.1 场景描述 </h4>
+<ul>
+<li>当宁波-舟山、洋山、外高桥任一港区出现重度拥堵（QL ≥20 艘），船舶将按既定“跳港规则”改靠邻近港区。</li>
+<li>跳港概率随拥堵差值、距离、吃水限制动态变化。</li>
+</ul>
+<h4 id="542-跳港规则表">5.4.2 跳港规则表 </h4>
+<table>
+<thead>
+<tr>
+<th>源港区</th>
+<th>目标港区</th>
+<th>距离 (nm)</th>
+<th>吃水限制 (m)</th>
+<th>基准跳港概率 p₀</th>
+<th>修正因子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>宁波-舟山</td>
+<td>洋山</td>
+<td>70</td>
+<td>15.5</td>
+<td>0.12</td>
+<td>ΔQL/20</td>
+</tr>
+<tr>
+<td>宁波-舟山</td>
+<td>外高桥</td>
+<td>120</td>
+<td>12.5</td>
+<td>0.08</td>
+<td>ΔQL/20</td>
+</tr>
+<tr>
+<td>洋山</td>
+<td>外高桥</td>
+<td>30</td>
+<td>12.5</td>
+<td>0.15</td>
+<td>ΔQL/20</td>
+</tr>
+<tr>
+<td>外高桥</td>
+<td>洋山</td>
+<td>30</td>
+<td>15.5</td>
+<td>0.10</td>
+<td>ΔQL/20</td>
+</tr>
+</tbody>
+</table>
+<p>ΔQL = 源港区 QL – 目标港区 QL</p>
+<h4 id="543-技术实现">5.4.3 技术实现 </h4>
+<ol>
+<li>
+<p><strong>图构建</strong>：<br>
+节点 = 港区，边 = 跳港概率，边权实时更新。</p>
+</li>
+<li>
+<p><strong>消息传递</strong>：<br>
+每 5 min 用 <strong>GraphSAGE</strong> 传播拥堵压力：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-class">class</span> <span class="token class-name">PortGraphSAGE</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> in_dim<span class="token punctuation">,</span> hidden<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>conv1 <span class="token operator">=</span> SAGEConv<span class="token punctuation">(</span>in_dim<span class="token punctuation">,</span> hidden<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>conv2 <span class="token operator">=</span> SAGEConv<span class="token punctuation">(</span>hidden<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">,</span> edge_index<span class="token punctuation">,</span> edge_weight<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        x <span class="token operator">=</span> F<span class="token punctuation">.</span>relu<span class="token punctuation">(</span>self<span class="token punctuation">.</span>conv1<span class="token punctuation">(</span>x<span class="token punctuation">,</span> edge_index<span class="token punctuation">,</span> edge_weight<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        x <span class="token operator">=</span> self<span class="token punctuation">.</span>conv2<span class="token punctuation">(</span>x<span class="token punctuation">,</span> edge_index<span class="token punctuation">,</span> edge_weight<span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> x  <span class="token comment"># 输出港区拥堵增量</span>
+</code></pre></li>
+<li>
+<p><strong>修正流程</strong>：</p>
+<div class="mermaid">flowchart LR
+    A[实时QL] --&gt;|ΔQL| B[跳港概率]
+    B --&gt; C[GraphSAGE]
+    C --&gt; D[生成新增船舶流]
+    D --&gt; E[L3-DES 重跑]
+    E --&gt; F[更新上海港QL]
+</div></li>
+<li>
+<p><strong>伪代码</strong>（嵌入 L3-DES 主循环）：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-def">def</span> <span class="token function">cascade_adjust</span><span class="token punctuation">(</span>current_ql<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""current_ql: dict 港区-&gt;QL"""</span>
+    edge_index<span class="token punctuation">,</span> edge_weight <span class="token operator">=</span> build_edges<span class="token punctuation">(</span>current_ql<span class="token punctuation">)</span>
+    delta <span class="token operator">=</span> port_gnn<span class="token punctuation">(</span>ql_to_tensor<span class="token punctuation">(</span>current_ql<span class="token punctuation">)</span><span class="token punctuation">,</span> edge_index<span class="token punctuation">,</span> edge_weight<span class="token punctuation">)</span>
+    new_arrivals <span class="token operator">=</span> poisson<span class="token punctuation">(</span>delta<span class="token punctuation">[</span><span class="token string">'shanghai'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-for">for</span> mmsi <span class="token keyword keyword-in">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>new_arrivals<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        eta <span class="token operator">+=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>exponential<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>  <span class="token comment"># 2 h 内到达</span>
+        env<span class="token punctuation">.</span>process<span class="token punctuation">(</span>ship_process<span class="token punctuation">(</span>env<span class="token punctuation">,</span> mmsi<span class="token punctuation">,</span> eta<span class="token punctuation">,</span> teu<span class="token operator">=</span><span class="token number">18000</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></li>
+</ol>
+<hr>
+<h2 id="6-模型融合与置信区间">6. 模型融合与置信区间 </h2>
+<ul>
+<li><strong>Stacking</strong>：L1、L2、L3 输出 → LightGBM 元学习器</li>
+<li><strong>Bootstrap</strong>：1000 次 → 95 % CI</li>
+<li><strong>2025-08-15 重度拥堵概率</strong>：
+<ul>
+<li>点估计 34 %</li>
+<li>95 % CI [27 %, 41 %]</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="7-结果可视化">7. 结果可视化 </h2>
+<table>
+<thead>
+<tr>
+<th>图表</th>
+<th>文件名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>日历热力图</td>
+<td><code>calendar_2025-08.png</code></td>
+<td>每日 QL 中位数</td>
+</tr>
+<tr>
+<td>风险曲线</td>
+<td><code>risk_curve_0815.png</code></td>
+<td>关税生效前后对比</td>
+</tr>
+<tr>
+<td>实时 Dashboard</td>
+<td><code>dashboard.html</code></td>
+<td>交互式，嵌入第一题风险评分</td>
+</tr>
+</tbody>
+</table>
+<div align="center">
+  <img src="./output/calendar_2025-08.png" width="45%">
+  <img src="./output/risk_curve_0815.png" width="45%">
+</div>
+<hr>
+<h2 id="8-行业对标">8. 行业对标 </h2>
+<table>
+<thead>
+<tr>
+<th>标准 / 指南</th>
+<th>条款</th>
+<th>本项目对应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IMO MSC-Circ.1023</strong></td>
+<td>步骤 3 风险估计</td>
+<td>三级量化模型</td>
+</tr>
+<tr>
+<td><strong>ISO 31000</strong></td>
+<td>风险评估流程</td>
+<td>风险矩阵 + CI</td>
+</tr>
+<tr>
+<td><strong>IALA G1118</strong></td>
+<td>港口数字孪生</td>
+<td>API 接口规范</td>
+</tr>
+<tr>
+<td><strong>IMF WEO 2025</strong></td>
+<td>宏观情景</td>
+<td>GDP/贸易量假设</td>
+</tr>
+<tr>
+<td><strong>Clarksons 2025</strong></td>
+<td>运力供给</td>
+<td>220 万 TEU 交付</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="9-附录">9. 附录 </h2>
+<h3 id="91-faq">9.1 FAQ </h3>
+<ul>
+<li><strong>Q1：为何不用 ARIMA？</strong></li>
+<li>A1：季节+外生变量高维，Transformer 更优。</li>
+<li><strong>Q2：为何不用单纯 DES？</strong></li>
+<li>A2：宏观趋势缺失，需 L1/L2 校正。</li>
+<li><strong>Q3：为何不像 HZ_QA 一样使用完整的代码建模，而是退化使用伪代码？</strong></li>
+<li>A3：尽力了喵呜，啥啥有效数据都薅不到说。我在文档的第一个版本里面是采用和 HZ_QA 一样的项目逻辑，我尝试去收集了一些数据，包括找世界银行、UNCTAD、上海航运交易所、以及其他第三方数据机构，但是由于数据颗粒度不一，数据周期差异较大，无法提供准确的预测环境。同时很多数据都是二级数据，数据分析的结果往往不佳。再者对于短期预测，很多有效数据都是非公开了，我也很难收集到足够的可信的历史样本。一些数据我留在了 external 文件夹下，external/SEARATES/data_reduction.py 是我对爬虫数据进行整理清洗的代码。第一个版本我的思路是使用这些数据进行长期的趋势拟合，再通过爬虫的港口预约数据进行预测，说实话我觉得没什么意义。所以我最后给出了这种预设数据加伪代码的形式，按照 AI 界的说法：在你成事正确按照你成事之后的做法去做，或者说摆了呐 ~</li>
+<li><strong>Q4：本文对政策因素考虑不足？</strong></li>
+<li>A4：航运作为长周期产业，对于大方向的预测固然是比较容易的，但是短期来看受到政策和事件冲击却是非常显著的。尤其近半年，我认为预测这个那家里请高人了……</li>
+</ul>
+<hr>
+<blockquote>
+<p>联系：2373204754@qq.com</p>
+</blockquote>
+
+      </div>
+      
+      
+    
+    
+    <script type="module">
+// TODO: If ZenUML gets integrated into mermaid in the future,
+//      we can remove the following lines.
+
+
+var MERMAID_CONFIG = ({"startOnLoad":false});
+if (typeof MERMAID_CONFIG !== 'undefined') {
+  MERMAID_CONFIG.startOnLoad = false
+  MERMAID_CONFIG.cloneCssStyles = false
+  MERMAID_CONFIG.theme = "default"
+}
+
+mermaid.initialize(MERMAID_CONFIG || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidetransitionend', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+} else {
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+}
+</script>
+    
+    
+    
+  
+    </body></html>
