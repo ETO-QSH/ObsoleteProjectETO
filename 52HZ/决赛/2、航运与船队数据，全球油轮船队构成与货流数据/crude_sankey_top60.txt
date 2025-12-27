@@ -1,0 +1,177 @@
+---
+config:
+  sankey:
+    showValues: false
+---
+sankey
+
+.Country Y,China.,8.98
+.Country Y,Singapore.,0.07
+.China,China.,57.15
+.China,Singapore.,0.23
+.China,Saudi Arabia.,0.28
+.China,South Korea.,0.30
+.Iraq,China.,169.03
+.Iraq,Iraq.,0.13
+.Iraq,Italy.,0.07
+.Iraq,Japan.,0.04
+.Iraq,Myanmar.,0.07
+.Iraq,USA.,0.14
+.Iraq,Philippines.,0.27
+.Iraq,UAE.,0.29
+.Iraq,South Korea.,12.07
+.Russia,China.,159.55
+.Russia,Russia.,0.61
+.Russia,Bulgaria.,7.98
+.Russia,Croatia.,1.69
+.Russia,Other.,3.30
+.Russia,Indonesia.,0.10
+.Russia,India.,59.29
+.Russia,Taiwan.,0.10
+.Russia,Turkey.,16.91
+.Russia,Egypt.,0.54
+.Russia,Brazil.,0.16
+.Russia,Greece.,4.68
+.Russia,Italy.,22.61
+.Russia,Sri Lanka.,0.47
+.Russia,Singapore.,2.29
+.Russia,Japan.,1.48
+.Russia,Saudi Arabia.,2.24
+.Russia,France.,5.56
+.Russia,Poland.,1.00
+.Russia,Thailand.,0.19
+.Russia,Myanmar.,0.71
+.Russia,Romania.,7.65
+.Russia,USA.,0.58
+.Russia,Netherlands.,10.90
+.Russia,Philippines.,0.07
+.Russia,Spain.,4.25
+.Russia,UAE.,3.36
+.Russia,South Korea.,14.24
+.Russia,Malaysia.,1.40
+.Other,China.,45.82
+.Other,Other.,0.09
+.Other,Indonesia.,0.21
+.Other,India.,0.38
+.Other,Taiwan.,0.26
+.Other,Turkey.,0.01
+.Other,Egypt.,0.05
+.Other,Greece.,0.01
+.Other,Singapore.,0.07
+.Other,Japan.,2.21
+.Other,Saudi Arabia.,0.05
+.Other,Thailand.,0.04
+.Other,Spain.,0.07
+.Other,South Korea.,4.23
+.Other,Malaysia.,0.53
+.Congo (Brazzaville),China.,26.92
+.Congo (Brazzaville),Malaysia.,0.22
+.Libya,China.,5.94
+.Libya,Thailand.,0.14
+.Libya,Malaysia.,0.12
+.Ghana,China.,5.05
+.Ghana,Singapore.,0.09
+.Ghana,Malaysia.,0.09
+.Gabon,China.,10.18
+.Gabon,South Korea.,0.51
+.Qatar,China.,21.96
+.Qatar,Taiwan.,0.05
+.Qatar,Singapore.,0.03
+.Qatar,Japan.,12.99
+.Qatar,South Korea.,4.96
+.Colombia,China.,6.99
+.Cameroon,China.,5.39
+.Egypt,China.,9.67
+.Egypt,Other.,0.05
+.Egypt,India.,0.07
+.Egypt,Japan.,0.03
+.Egypt,UAE.,0.07
+.Egypt,South Korea.,0.47
+.Egypt,Malaysia.,0.07
+.Mexico,China.,4.16
+.Mexico,USA.,0.10
+.Mexico,South Korea.,2.14
+.Venezuela,China.,9.57
+.Angola,China.,89.93
+.Angola,Indonesia.,0.16
+.Angola,Taiwan.,0.82
+.Angola,Thailand.,0.23
+.Angola,South Korea.,0.07
+.Angola,Malaysia.,0.14
+.Panama,China.,30.57
+.Panama,Japan.,1.46
+.Brazil,China.,94.02
+.Brazil,Indonesia.,0.13
+.Brazil,India.,0.14
+.Brazil,Brazil.,0.54
+.Brazil,Singapore.,0.77
+.Brazil,Thailand.,0.14
+.Brazil,South Korea.,4.32
+.Brazil,Malaysia.,0.98
+.Norway,China.,6.65
+.Norway,South Korea.,0.19
+.Singapore,China.,101.27
+.Singapore,Iraq.,0.13
+.Singapore,Other.,0.10
+.Singapore,Singapore.,0.05
+.Singapore,Japan.,4.39
+.Singapore,Thailand.,0.17
+.Singapore,Philippines.,0.05
+.Singapore,South Korea.,1.50
+.Japan,China.,4.06
+.Japan,Singapore.,0.06
+.Japan,Japan.,33.87
+.Japan,South Korea.,0.81
+.Saudi Arabia,China.,234.75
+.Saudi Arabia,Other.,0.28
+.Saudi Arabia,Taiwan.,2.59
+.Saudi Arabia,Japan.,69.23
+.Saudi Arabia,Myanmar.,0.07
+.Saudi Arabia,UAE.,0.14
+.Saudi Arabia,South Korea.,45.05
+.Saudi Arabia,Malaysia.,0.14
+.Australia,China.,3.40
+.Australia,Japan.,0.58
+.Australia,South Korea.,1.12
+.Kuwait,China.,65.45
+.Kuwait,Iraq.,0.13
+.Kuwait,Taiwan.,0.70
+.Kuwait,Japan.,15.71
+.Kuwait,South Korea.,14.48
+.USA,China.,43.23
+.USA,Other.,0.10
+.USA,Indonesia.,0.18
+.USA,India.,0.27
+.USA,Taiwan.,2.76
+.USA,Japan.,2.69
+.USA,USA.,0.06
+.USA,South Korea.,11.57
+.USA,Malaysia.,0.28
+.UK,China.,5.63
+.UK,South Korea.,0.95
+.Oman,China.,121.69
+.Oman,Taiwan.,0.56
+.Oman,Japan.,2.38
+.Oman,South Korea.,1.77
+.UAE,China.,133.74
+.UAE,Iraq.,0.14
+.UAE,Indonesia.,0.07
+.UAE,Taiwan.,0.62
+.UAE,Japan.,58.94
+.UAE,Philippines.,0.08
+.UAE,UAE.,0.04
+.UAE,South Korea.,12.30
+.UAE,Malaysia.,0.14
+.South Korea,China.,12.70
+.South Korea,Iraq.,0.03
+.South Korea,Singapore.,0.08
+.South Korea,Japan.,2.17
+.South Korea,USA.,0.05
+.South Korea,South Korea.,0.98
+.South Korea,Malaysia.,0.03
+.Malaysia,China.,75.71
+.Malaysia,Other.,0.17
+.Malaysia,Indonesia.,0.07
+.Malaysia,India.,0.14
+.Malaysia,Japan.,4.49
+.Malaysia,South Korea.,1.24
