@@ -1,0 +1,370 @@
+<!DOCTYPE html><html><head>
+      <title>最终项目结构</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\ETO\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      <script type="text/javascript" src="file:///c:\Users\ETO\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\mermaid\mermaid.min.js" charset="UTF-8"></script>
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<div class="mermaid">graph LR
+    52HZ_710273[( 52HZ )]
+    1_原油贸易_成品油贸易数据_f809ea[[1、原油贸易、成品油贸易数据]]
+    52HZ_710273 --&gt; 1_原油贸易_成品油贸易数据_f809ea
+    timeline_000011[[timeline]]
+    1_原油贸易_成品油贸易数据_f809ea --&gt; timeline_000011
+    中国_png_d54954([中国.png])
+    timeline_000011 --&gt; 中国_png_d54954
+    中国_svg_66bf8c([中国.svg])
+    timeline_000011 --&gt; 中国_svg_66bf8c
+    欧洲_png_238bb3([欧洲.png])
+    timeline_000011 --&gt; 欧洲_png_238bb3
+    欧洲_svg_947ec9([欧洲.svg])
+    timeline_000011 --&gt; 欧洲_svg_947ec9
+    China_Refinery_csv_53793a([China_Refinery.csv])
+    1_原油贸易_成品油贸易数据_f809ea --&gt; China_Refinery_csv_53793a
+    China_Refinery_png_0f1adb([China_Refinery.png])
+    1_原油贸易_成品油贸易数据_f809ea --&gt; China_Refinery_png_0f1adb
+    china_refinery_index_py_ee5bf1([china_refinery_index.py])
+    1_原油贸易_成品油贸易数据_f809ea --&gt; china_refinery_index_py_ee5bf1
+    timeline_md_e402da([timeline.md])
+    1_原油贸易_成品油贸易数据_f809ea --&gt; timeline_md_e402da
+    中国出口成品油海运量_2025_10_17_xls_3418e4([中国出口成品油海运量_2025-10-17.xls])
+    1_原油贸易_成品油贸易数据_f809ea --&gt; 中国出口成品油海运量_2025_10_17_xls_3418e4
+    中国进口原油海运量_2025_10_17_xls_3d9609([中国进口原油海运量_2025-10-17.xls])
+    1_原油贸易_成品油贸易数据_f809ea --&gt; 中国进口原油海运量_2025_10_17_xls_3d9609
+    中国进口成品油海运量_2025_10_17_xls_69890d([中国进口成品油海运量_2025-10-17.xls])
+    1_原油贸易_成品油贸易数据_f809ea --&gt; 中国进口成品油海运量_2025_10_17_xls_69890d
+    产能布局数据_md_6f3253([产能布局数据.md])
+    1_原油贸易_成品油贸易数据_f809ea --&gt; 产能布局数据_md_6f3253
+    2_航运与船队数据_全球油轮船队构成与货流数据_10fca4[[2、航运与船队数据，全球油轮船队构成与货流数据]]
+    52HZ_710273 --&gt; 2_航运与船队数据_全球油轮船队构成与货流数据_10fca4
+    plots_709456[[plots]]
+    2_航运与船队数据_全球油轮船队构成与货流数据_10fca4 --&gt; plots_709456
+    crude_flow_2022_png_6c5d4c([crude_flow_2022.png])
+    plots_709456 --&gt; crude_flow_2022_png_6c5d4c
+    crude_flow_2023_png_4b1dd3([crude_flow_2023.png])
+    plots_709456 --&gt; crude_flow_2023_png_4b1dd3
+    crude_flow_2024_png_17c0dc([crude_flow_2024.png])
+    plots_709456 --&gt; crude_flow_2024_png_17c0dc
+    crude_flow_combined_png_9f6afe([crude_flow_combined.png])
+    plots_709456 --&gt; crude_flow_combined_png_9f6afe
+    sankey_text_ed305a[[sankey_text]]
+    2_航运与船队数据_全球油轮船队构成与货流数据_10fca4 --&gt; sankey_text_ed305a
+    crude_sankey_2022_txt_4677a0([crude_sankey_2022.txt])
+    sankey_text_ed305a --&gt; crude_sankey_2022_txt_4677a0
+    crude_sankey_2023_txt_646c58([crude_sankey_2023.txt])
+    sankey_text_ed305a --&gt; crude_sankey_2023_txt_646c58
+    crude_sankey_2024_txt_e57e68([crude_sankey_2024.txt])
+    sankey_text_ed305a --&gt; crude_sankey_2024_txt_e57e68
+    2022_2024内贸成品油货流分析_xlsx_3b8118([2022-2024内贸成品油货流分析.xlsx])
+    2_航运与船队数据_全球油轮船队构成与货流数据_10fca4 --&gt; 2022_2024内贸成品油货流分析_xlsx_3b8118
+    2022_2024原油全球货流分析_xlsx_48266a([2022-2024原油全球货流分析.xlsx])
+    2_航运与船队数据_全球油轮船队构成与货流数据_10fca4 --&gt; 2022_2024原油全球货流分析_xlsx_48266a
+    AGCOFOP_py_f40705([AGCOFOP.py])
+    2_航运与船队数据_全球油轮船队构成与货流数据_10fca4 --&gt; AGCOFOP_py_f40705
+    country_flow_analysis_with_pct_csv_b48f4c([country_flow_analysis_with_pct.csv])
+    2_航运与船队数据_全球油轮船队构成与货流数据_10fca4 --&gt; country_flow_analysis_with_pct_csv_b48f4c
+    crude_flow_combined_py_4390df([crude_flow_combined.py])
+    2_航运与船队数据_全球油轮船队构成与货流数据_10fca4 --&gt; crude_flow_combined_py_4390df
+    crude_oil_flow_json_a07fd1([crude_oil_flow.json])
+    2_航运与船队数据_全球油轮船队构成与货流数据_10fca4 --&gt; crude_oil_flow_json_a07fd1
+    crude_sankey_top60_txt_e99ceb([crude_sankey_top60.txt])
+    2_航运与船队数据_全球油轮船队构成与货流数据_10fca4 --&gt; crude_sankey_top60_txt_e99ceb
+    sankey_py_f3bc10([sankey.py])
+    2_航运与船队数据_全球油轮船队构成与货流数据_10fca4 --&gt; sankey_py_f3bc10
+    test_py_95ec3e([test.py])
+    2_航运与船队数据_全球油轮船队构成与货流数据_10fca4 --&gt; test_py_95ec3e
+    油轮船舶档案_csv_4db60f([油轮船舶档案.csv])
+    2_航运与船队数据_全球油轮船队构成与货流数据_10fca4 --&gt; 油轮船舶档案_csv_4db60f
+    3_油运市场上中_欧航线相关分航线_分船型的价格指数或价格_be5e67[[3、油运市场上中、欧航线相关分航线、分船型的价格指数或价格]]
+    52HZ_710273 --&gt; 3_油运市场上中_欧航线相关分航线_分船型的价格指数或价格_be5e67
+    BDTI_2025_10_17_xls_49bc6f([BDTI_2025-10-17.xls])
+    3_油运市场上中_欧航线相关分航线_分船型的价格指数或价格_be5e67 --&gt; BDTI_2025_10_17_xls_49bc6f
+    BDTI_AllRoutes_png_821825([BDTI_AllRoutes.png])
+    3_油运市场上中_欧航线相关分航线_分船型的价格指数或价格_be5e67 --&gt; BDTI_AllRoutes_png_821825
+    BDTI_AllRoutes_Weighted_csv_8a361d([BDTI_AllRoutes_Weighted.csv])
+    3_油运市场上中_欧航线相关分航线_分船型的价格指数或价格_be5e67 --&gt; BDTI_AllRoutes_Weighted_csv_8a361d
+    BDTI_CN_vs_EU_Routes_png_92772e([BDTI_CN_vs_EU_Routes.png])
+    3_油运市场上中_欧航线相关分航线_分船型的价格指数或价格_be5e67 --&gt; BDTI_CN_vs_EU_Routes_png_92772e
+    BDTI_China_vs_Europe_index_py_e86c97([BDTI_China_vs_Europe_index.py])
+    3_油运市场上中_欧航线相关分航线_分船型的价格指数或价格_be5e67 --&gt; BDTI_China_vs_Europe_index_py_e86c97
+    BDTI_Monthly_Avg_csv_490a6d([BDTI_Monthly_Avg.csv])
+    3_油运市场上中_欧航线相关分航线_分船型的价格指数或价格_be5e67 --&gt; BDTI_Monthly_Avg_csv_490a6d
+    BDTI_Monthly_Avg_png_284828([BDTI_Monthly_Avg.png])
+    3_油运市场上中_欧航线相关分航线_分船型的价格指数或价格_be5e67 --&gt; BDTI_Monthly_Avg_png_284828
+    BDTI_index_py_c4c288([BDTI_index.py])
+    3_油运市场上中_欧航线相关分航线_分船型的价格指数或价格_be5e67 --&gt; BDTI_index_py_c4c288
+    BDTI分航线运价指数_对应运输航线_docx_f3fc22([BDTI分航线运价指数-对应运输航线.docx])
+    3_油运市场上中_欧航线相关分航线_分船型的价格指数或价格_be5e67 --&gt; BDTI分航线运价指数_对应运输航线_docx_f3fc22
+    BDTI分航线运价指数_日__2025_10_17_xls_3954f7([BDTI分航线运价指数（日）_2025-10-17.xls])
+    3_油运市场上中_欧航线相关分航线_分船型的价格指数或价格_be5e67 --&gt; BDTI分航线运价指数_日__2025_10_17_xls_3954f7
+    CTFI_Monthly_Avg_csv_a18394([CTFI_Monthly_Avg.csv])
+    3_油运市场上中_欧航线相关分航线_分船型的价格指数或价格_be5e67 --&gt; CTFI_Monthly_Avg_csv_a18394
+    CTFI_Monthly_Avg_png_bead80([CTFI_Monthly_Avg.png])
+    3_油运市场上中_欧航线相关分航线_分船型的价格指数或价格_be5e67 --&gt; CTFI_Monthly_Avg_png_bead80
+    CTFI_index_py_56eb36([CTFI_index.py])
+    3_油运市场上中_欧航线相关分航线_分船型的价格指数或价格_be5e67 --&gt; CTFI_index_py_56eb36
+    _海上丝绸之路_进口原油运价指数_分航线__2025_10_17_xls_14c69a(['海上丝绸之路'进口原油运价指数（分航线）_2025-10-17.xls])
+    3_油运市场上中_欧航线相关分航线_分船型的价格指数或价格_be5e67 --&gt; _海上丝绸之路_进口原油运价指数_分航线__2025_10_17_xls_14c69a
+    中国进口原油运价指数_2025_10_17_xls_3e7d7b([中国进口原油运价指数_2025-10-17.xls])
+    3_油运市场上中_欧航线相关分航线_分船型的价格指数或价格_be5e67 --&gt; 中国进口原油运价指数_2025_10_17_xls_3e7d7b
+    4_MR型成品油轮_阿芙拉型成品油轮_VLCC油轮_2020年_2024年_每年1_3月的船舶轨迹数据_012008[[4、MR型成品油轮、阿芙拉型成品油轮、VLCC油轮，2020年-2024年，每年1-3月的船舶轨迹数据]]
+    52HZ_710273 --&gt; 4_MR型成品油轮_阿芙拉型成品油轮_VLCC油轮_2020年_2024年_每年1_3月的船舶轨迹数据_012008
+    MR型成品油轮_901b8d[[MR型成品油轮]]
+    4_MR型成品油轮_阿芙拉型成品油轮_VLCC油轮_2020年_2024年_每年1_3月的船舶轨迹数据_012008 --&gt; MR型成品油轮_901b8d
+    VLCC油轮_23ff65[[VLCC油轮]]
+    4_MR型成品油轮_阿芙拉型成品油轮_VLCC油轮_2020年_2024年_每年1_3月的船舶轨迹数据_012008 --&gt; VLCC油轮_23ff65
+    data_cache_dd03a9[[data_cache]]
+    4_MR型成品油轮_阿芙拉型成品油轮_VLCC油轮_2020年_2024年_每年1_3月的船舶轨迹数据_012008 --&gt; data_cache_dd03a9
+    output_bfc545[[output]]
+    4_MR型成品油轮_阿芙拉型成品油轮_VLCC油轮_2020年_2024年_每年1_3月的船舶轨迹数据_012008 --&gt; output_bfc545
+    heatmap_cartopy_2020_png_608845([heatmap_cartopy_2020.png])
+    output_bfc545 --&gt; heatmap_cartopy_2020_png_608845
+    heatmap_raw_2020_png_3ac6ff([heatmap_raw_2020.png])
+    output_bfc545 --&gt; heatmap_raw_2020_png_3ac6ff
+    test_output_24a2bf[[test_output]]
+    4_MR型成品油轮_阿芙拉型成品油轮_VLCC油轮_2020年_2024年_每年1_3月的船舶轨迹数据_012008 --&gt; test_output_24a2bf
+    test_rgb_2020_png_98b85c([test_rgb_2020.png])
+    test_output_24a2bf --&gt; test_rgb_2020_png_98b85c
+    test_rgb_2021_png_1c6bca([test_rgb_2021.png])
+    test_output_24a2bf --&gt; test_rgb_2021_png_1c6bca
+    test_rgb_2022_png_623565([test_rgb_2022.png])
+    test_output_24a2bf --&gt; test_rgb_2022_png_623565
+    test_rgb_2023_png_13735d([test_rgb_2023.png])
+    test_output_24a2bf --&gt; test_rgb_2023_png_13735d
+    test_rgb_2024_png_e6f996([test_rgb_2024.png])
+    test_output_24a2bf --&gt; test_rgb_2024_png_e6f996
+    阿芙拉型成品油轮_c0fb30[[阿芙拉型成品油轮]]
+    4_MR型成品油轮_阿芙拉型成品油轮_VLCC油轮_2020年_2024年_每年1_3月的船舶轨迹数据_012008 --&gt; 阿芙拉型成品油轮_c0fb30
+    background_map_png_8a1605([background_map.png])
+    4_MR型成品油轮_阿芙拉型成品油轮_VLCC油轮_2020年_2024年_每年1_3月的船舶轨迹数据_012008 --&gt; background_map_png_8a1605
+    background_map_py_f24ca2([background_map.py])
+    4_MR型成品油轮_阿芙拉型成品油轮_VLCC油轮_2020年_2024年_每年1_3月的船舶轨迹数据_012008 --&gt; background_map_py_f24ca2
+    datalib_py_3b65ed([datalib.py])
+    4_MR型成品油轮_阿芙拉型成品油轮_VLCC油轮_2020年_2024年_每年1_3月的船舶轨迹数据_012008 --&gt; datalib_py_3b65ed
+    heatmap_py_66cc96([heatmap.py])
+    4_MR型成品油轮_阿芙拉型成品油轮_VLCC油轮_2020年_2024年_每年1_3月的船舶轨迹数据_012008 --&gt; heatmap_py_66cc96
+    test_py_cd963a([test.py])
+    4_MR型成品油轮_阿芙拉型成品油轮_VLCC油轮_2020年_2024年_每年1_3月的船舶轨迹数据_012008 --&gt; test_py_cd963a
+    5_主要油轮船型的市场价格_c0333d[[5、主要油轮船型的市场价格]]
+    52HZ_710273 --&gt; 5_主要油轮船型的市场价格_c0333d
+    Newbuilding_Price_and_UnitPrice_csv_aa3fd1([Newbuilding_Price_and_UnitPrice.csv])
+    5_主要油轮船型的市场价格_c0333d --&gt; Newbuilding_Price_and_UnitPrice_csv_aa3fd1
+    Newbuilding_Price_by_Type_png_d5d278([Newbuilding_Price_by_Type.png])
+    5_主要油轮船型的市场价格_c0333d --&gt; Newbuilding_Price_by_Type_png_d5d278
+    Newbuilding_UnitPrice_by_Type_png_b65d07([Newbuilding_UnitPrice_by_Type.png])
+    5_主要油轮船型的市场价格_c0333d --&gt; Newbuilding_UnitPrice_by_Type_png_b65d07
+    Ship_Depreciation_Rate_Monthly_csv_e79697([Ship_Depreciation_Rate_Monthly.csv])
+    5_主要油轮船型的市场价格_c0333d --&gt; Ship_Depreciation_Rate_Monthly_csv_e79697
+    Ship_Depreciation_Rate_Trends_png_0b0a13([Ship_Depreciation_Rate_Trends.png])
+    5_主要油轮船型的市场价格_c0333d --&gt; Ship_Depreciation_Rate_Trends_png_0b0a13
+    Tanker_Price_Index_Compare_png_d5ca6c([Tanker_Price_Index_Compare.png])
+    5_主要油轮船型的市场价格_c0333d --&gt; Tanker_Price_Index_Compare_png_d5ca6c
+    Tanker_Price_Index_Monthly_csv_913c73([Tanker_Price_Index_Monthly.csv])
+    5_主要油轮船型的市场价格_c0333d --&gt; Tanker_Price_Index_Monthly_csv_913c73
+    VLCC二手售价_周__2025_10_17_xls_0e35d8([VLCC二手售价（周）_2025-10-17.xls])
+    5_主要油轮船型的市场价格_c0333d --&gt; VLCC二手售价_周__2025_10_17_xls_0e35d8
+    new_ship_USD_DWT_py_3a6fc1([new_ship_USD_DWT.py])
+    5_主要油轮船型的市场价格_c0333d --&gt; new_ship_USD_DWT_py_3a6fc1
+    old_ship_py_aac42c([old_ship.py])
+    5_主要油轮船型的市场价格_c0333d --&gt; old_ship_py_aac42c
+    sspi_csi_py_eb565e([sspi_csi.py])
+    5_主要油轮船型的市场价格_c0333d --&gt; sspi_csi_py_eb565e
+    二手油船价格指数_2025_10_17_xls_0dbb5d([二手油船价格指数_2025-10-17.xls])
+    5_主要油轮船型的市场价格_c0333d --&gt; 二手油船价格指数_2025_10_17_xls_0dbb5d
+    二手船价格_2025_10_17_xls_210e83([二手船价格_2025-10-17.xls])
+    5_主要油轮船型的市场价格_c0333d --&gt; 二手船价格_2025_10_17_xls_210e83
+    新油船价格指数_2025_10_17_xls_cb0c9e([新油船价格指数_2025-10-17.xls])
+    5_主要油轮船型的市场价格_c0333d --&gt; 新油船价格指数_2025_10_17_xls_cb0c9e
+    新船价格_2025_10_17_xls_438da6([新船价格_2025-10-17.xls])
+    5_主要油轮船型的市场价格_c0333d --&gt; 新船价格_2025_10_17_xls_438da6
+    report_8663c0[[report]]
+    52HZ_710273 --&gt; report_8663c0
+    AIS_gif_26c499([AIS.gif])
+    report_8663c0 --&gt; AIS_gif_26c499
+    BDTI_AllRoutes_png_e21520([BDTI_AllRoutes.png])
+    report_8663c0 --&gt; BDTI_AllRoutes_png_e21520
+    BDTI_CN_vs_EU_Routes_png_e3e974([BDTI_CN_vs_EU_Routes.png])
+    report_8663c0 --&gt; BDTI_CN_vs_EU_Routes_png_e3e974
+    BDTI_Monthly_Avg_png_127fef([BDTI_Monthly_Avg.png])
+    report_8663c0 --&gt; BDTI_Monthly_Avg_png_127fef
+    CTFI_Monthly_Avg_png_77dc46([CTFI_Monthly_Avg.png])
+    report_8663c0 --&gt; CTFI_Monthly_Avg_png_77dc46
+    China_Refinery_png_bed16c([China_Refinery.png])
+    report_8663c0 --&gt; China_Refinery_png_bed16c
+    Newbuilding_Price_by_Type_png_4f0247([Newbuilding_Price_by_Type.png])
+    report_8663c0 --&gt; Newbuilding_Price_by_Type_png_4f0247
+    Newbuilding_UnitPrice_by_Type_png_9f9a80([Newbuilding_UnitPrice_by_Type.png])
+    report_8663c0 --&gt; Newbuilding_UnitPrice_by_Type_png_9f9a80
+    Ship_Depreciation_Rate_Trends_png_49dbd3([Ship_Depreciation_Rate_Trends.png])
+    report_8663c0 --&gt; Ship_Depreciation_Rate_Trends_png_49dbd3
+    Tanker_Price_Index_Compare_png_75a1a4([Tanker_Price_Index_Compare.png])
+    report_8663c0 --&gt; Tanker_Price_Index_Compare_png_75a1a4
+    WorldMap_png_4934d8([WorldMap.png])
+    report_8663c0 --&gt; WorldMap_png_4934d8
+    WorldMapLine_png_28063a([WorldMapLine.png])
+    report_8663c0 --&gt; WorldMapLine_png_28063a
+    background_map_png_9f4518([background_map.png])
+    report_8663c0 --&gt; background_map_png_9f4518
+    crude_flow_2022_png_ce8133([crude_flow_2022.png])
+    report_8663c0 --&gt; crude_flow_2022_png_ce8133
+    crude_flow_2023_png_6d1326([crude_flow_2023.png])
+    report_8663c0 --&gt; crude_flow_2023_png_6d1326
+    crude_flow_2024_png_ab6c35([crude_flow_2024.png])
+    report_8663c0 --&gt; crude_flow_2024_png_ab6c35
+    crude_flow_combined_png_a4fbee([crude_flow_combined.png])
+    report_8663c0 --&gt; crude_flow_combined_png_a4fbee
+    crude_sankey_top60_png_968bc8([crude_sankey_top60.png])
+    report_8663c0 --&gt; crude_sankey_top60_png_968bc8
+    中国_png_6e5e54([中国.png])
+    report_8663c0 --&gt; 中国_png_6e5e54
+    产能布局数据_md_ec625a([产能布局数据.md])
+    report_8663c0 --&gt; 产能布局数据_md_ec625a
+    全球油化品贸易流向重塑示意图_png_72ee40([全球油化品贸易流向重塑示意图.png])
+    report_8663c0 --&gt; 全球油化品贸易流向重塑示意图_png_72ee40
+    北极航线_removebg_preview_png_c67b6c([北极航线-removebg-preview.png])
+    report_8663c0 --&gt; 北极航线_removebg_preview_png_c67b6c
+    图片1_jpg_6445bc([图片1.jpg])
+    report_8663c0 --&gt; 图片1_jpg_6445bc
+    扩张规模建议_xls_1c5d12([扩张规模建议.xls])
+    report_8663c0 --&gt; 扩张规模建议_xls_1c5d12
+    扩张需求_png_258d4a([扩张需求.png])
+    report_8663c0 --&gt; 扩张需求_png_258d4a
+    数据集_png_c9d0a2([数据集.png])
+    report_8663c0 --&gt; 数据集_png_c9d0a2
+    方案A_png_803f9f([方案A.png])
+    report_8663c0 --&gt; 方案A_png_803f9f
+    方案B_png_f3dc5e([方案B.png])
+    report_8663c0 --&gt; 方案B_png_f3dc5e
+    方案C_png_1d138d([方案C.png])
+    report_8663c0 --&gt; 方案C_png_1d138d
+    欧洲_png_067962([欧洲.png])
+    report_8663c0 --&gt; 欧洲_png_067962
+    欧洲产能转移引发的全球油化产业链条重构_pptx_dceeb5([欧洲产能转移引发的全球油化产业链条重构.pptx])
+    report_8663c0 --&gt; 欧洲产能转移引发的全球油化产业链条重构_pptx_dceeb5
+    红海危机数据_png_5230b7([红海危机数据.png])
+    report_8663c0 --&gt; 红海危机数据_png_5230b7
+    红海危机机制_png_29ed65([红海危机机制.png])
+    report_8663c0 --&gt; 红海危机机制_png_29ed65
+    苏伊士运河_png_5ef213([苏伊士运河.png])
+    report_8663c0 --&gt; 苏伊士运河_png_5ef213
+    苏伊士运河危机_png_fe7e9c([苏伊士运河危机.png])
+    report_8663c0 --&gt; 苏伊士运河危机_png_fe7e9c
+    运力紧张_png_dda7f1([运力紧张.png])
+    report_8663c0 --&gt; 运力紧张_png_dda7f1
+    运力过剩_png_3d6e58([运力过剩.png])
+    report_8663c0 --&gt; 运力过剩_png_3d6e58
+    src_b8ed7b[[src]]
+    52HZ_710273 --&gt; src_b8ed7b
+    GIS_fe9efe[[GIS]]
+    src_b8ed7b --&gt; GIS_fe9efe
+    Shipping_Lanes_geojson_c23de9([Shipping_Lanes.geojson])
+    GIS_fe9efe --&gt; Shipping_Lanes_geojson_c23de9
+    Shipping_Lanes_qmd_448628([Shipping_Lanes.qmd])
+    GIS_fe9efe --&gt; Shipping_Lanes_qmd_448628
+    Shipping_Lanes_url_b96ffb([Shipping_Lanes.url])
+    GIS_fe9efe --&gt; Shipping_Lanes_url_b96ffb
+    UpdatedPub150_csv_83805b([UpdatedPub150.csv])
+    GIS_fe9efe --&gt; UpdatedPub150_csv_83805b
+    UpdatedPub150_url_43f7a4([UpdatedPub150.url])
+    GIS_fe9efe --&gt; UpdatedPub150_url_43f7a4
+    UpdatedPub150_url_geojson_c12d9e([UpdatedPub150.url.geojson])
+    GIS_fe9efe --&gt; UpdatedPub150_url_geojson_c12d9e
+    UpdatedPub150_url_qmd_5b0114([UpdatedPub150.url.qmd])
+    GIS_fe9efe --&gt; UpdatedPub150_url_qmd_5b0114
+    ne_110m_admin_0_countries_url_ef71db([ne_110m_admin_0_countries.url])
+    GIS_fe9efe --&gt; ne_110m_admin_0_countries_url_ef71db
+    ne_110m_admin_0_countries_url_geojson_9675f6([ne_110m_admin_0_countries.url.geojson])
+    GIS_fe9efe --&gt; ne_110m_admin_0_countries_url_geojson_9675f6
+    ne_110m_admin_0_countries_url_qmd_bdac74([ne_110m_admin_0_countries.url.qmd])
+    GIS_fe9efe --&gt; ne_110m_admin_0_countries_url_qmd_bdac74
+    ne_110m_admin_0_countries_zip_ccdd44([ne_110m_admin_0_countries.zip])
+    GIS_fe9efe --&gt; ne_110m_admin_0_countries_zip_ccdd44
+    ne_110m_ocean_url_cf21e9([ne_110m_ocean.url])
+    GIS_fe9efe --&gt; ne_110m_ocean_url_cf21e9
+    ne_110m_ocean_url_geojson_4ebd14([ne_110m_ocean.url.geojson])
+    GIS_fe9efe --&gt; ne_110m_ocean_url_geojson_4ebd14
+    ne_110m_ocean_url_qmd_15da71([ne_110m_ocean.url.qmd])
+    GIS_fe9efe --&gt; ne_110m_ocean_url_qmd_15da71
+    ne_110m_ocean_zip_78cbc6([ne_110m_ocean.zip])
+    GIS_fe9efe --&gt; ne_110m_ocean_zip_78cbc6
+    WorldMap_pgw_b9be65([WorldMap.pgw])
+    src_b8ed7b --&gt; WorldMap_pgw_b9be65
+    WorldMap_png_f55da2([WorldMap.png])
+    src_b8ed7b --&gt; WorldMap_png_f55da2
+    全球港口分布图_qgz_9409ee([全球港口分布图.qgz])
+    src_b8ed7b --&gt; 全球港口分布图_qgz_9409ee
+    folder2MermaidTree_py_1fddaf([folder2MermaidTree.py])
+    52HZ_710273 --&gt; folder2MermaidTree_py_1fddaf
+    _52Hz杯_2025届海事编程马拉松大赛决赛题目_当天发布_1_docx_084cee(['52Hz杯'2025届海事编程马拉松大赛决赛题目（当天发布） （1）.docx])
+    52HZ_710273 --&gt; _52Hz杯_2025届海事编程马拉松大赛决赛题目_当天发布_1_docx_084cee
+    数据集_md_63df07([数据集.md])
+    52HZ_710273 --&gt; 数据集_md_63df07
+    数据集_png_4e5a0e([数据集.png])
+    52HZ_710273 --&gt; 数据集_png_4e5a0e
+</div>
+      </div>
+      
+      
+    
+    
+    <script type="module">
+// TODO: If ZenUML gets integrated into mermaid in the future,
+//      we can remove the following lines.
+
+
+var MERMAID_CONFIG = ({"startOnLoad":false});
+if (typeof MERMAID_CONFIG !== 'undefined') {
+  MERMAID_CONFIG.startOnLoad = false
+  MERMAID_CONFIG.cloneCssStyles = false
+  MERMAID_CONFIG.theme = "default"
+}
+
+mermaid.initialize(MERMAID_CONFIG || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidetransitionend', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+} else {
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+}
+</script>
+    
+    
+    
+  
+    </body></html>
