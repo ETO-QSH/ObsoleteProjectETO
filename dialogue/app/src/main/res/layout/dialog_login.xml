@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- 账号输入 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lolita"
+        android:hint="账号">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_username"
+            android:textCursorDrawable="@drawable/cursor_custom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lolita"
+            android:inputType="text"
+            android:gravity="bottom"
+            android:paddingTop="32dp"
+            android:paddingBottom="4dp"
+            android:maxLines="1"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 密码输入 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lolita"
+        android:hint="密码"
+        android:layout_marginTop="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_password"
+            android:textCursorDrawable="@drawable/cursor_custom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lolita"
+            android:inputType="textPassword"
+            android:gravity="bottom"
+            android:paddingTop="32dp"
+            android:paddingBottom="4dp"
+            android:maxLines="1"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

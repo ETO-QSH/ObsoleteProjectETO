@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_clear"
+        android:title="清除对话"
+        android:icon="@drawable/ic_clear"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_account"
+        android:title="账号"
+        android:icon="@drawable/ic_account"
+        app:showAsAction="ifRoom"/>
+</menu>
