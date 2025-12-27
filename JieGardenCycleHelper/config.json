@@ -1,0 +1,7 @@
+{
+    "adb_path": "D:/Program Files/MuMu Player 12/shell/adb.exe",
+    "screenshot_dir": "./screenshot",
+    "picture_dir": "./picture",
+    "log_file": "./running.log",
+    "sleep_time": 0.5
+}
