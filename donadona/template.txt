@@ -1,0 +1,9 @@
+画像=template.png
+名前=template
+ルックス=S+
+テクニック=S+
+メンタル=S+
+属性=XXX
+属性=XXX
+属性=XXX
+処女=0
