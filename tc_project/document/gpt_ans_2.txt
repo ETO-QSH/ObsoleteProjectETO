@@ -1,0 +1,1095 @@
+你现在需要的已经不是“论文方案”，而是：
+
+# 一套真正能落地的量化建模开发路线
+
+也就是：
+
+# 从原始 Excel → 数据整理 → 特征工程 → 模型训练 → 预测 → 回测 → 指标计算
+
+完整代码工程应该怎么一步步搭建。
+
+下面我给你的是：
+
+# 数学建模/量化项目真正的工业级开发流程
+
+你可以直接按这个路径写代码。
+
+---
+
+# 一、整个项目的最终工程结构
+
+你先不要急着写模型。
+
+先把工程目录搭好。
+
+推荐：
+
+```text
+quant_project/
+│
+├── data/
+│   ├── raw/                  # 原始数据
+│   ├── processed/            # 清洗后的数据
+│   └── feature/              # 特征工程结果
+│
+├── notebooks/
+│   ├── EDA.ipynb             # 数据分析
+│   ├── feature_analysis.ipynb
+│   └── backtest.ipynb
+│
+├── src/
+│   ├── preprocess.py         # 数据清洗
+│   ├── feature_engineering.py
+│   ├── feature_selection.py
+│   ├── volume_model.py
+│   ├── price_model.py
+│   ├── strategy.py
+│   ├── backtest.py
+│   └── metrics.py
+│
+├── models/
+│   ├── xgboost/
+│   ├── lstm/
+│   └── attention/
+│
+├── outputs/
+│   ├── figures/
+│   ├── logs/
+│   └── prediction/
+│
+├── requirements.txt
+└── main.py
+```
+
+---
+
+# 二、第一步：读取 Excel 数据
+
+---
+
+# 目标
+
+先搞清楚：
+
+* 有哪些 sheet
+* 每个 sheet 是什么
+* 时间字段是什么
+* 哪些是目标变量
+
+---
+
+# 代码
+
+```python
+import pandas as pd
+
+file_path = "C题附表.xlsx"
+
+xls = pd.ExcelFile(file_path)
+
+print(xls.sheet_names)
+```
+
+---
+
+# 接下来做什么？
+
+你会看到：
+
+```text
+['数字经济', '宏观指标', '技术指标', ...]
+```
+
+然后逐个读取：
+
+```python
+df = pd.read_excel(file_path, sheet_name='数字经济')
+
+print(df.head())
+print(df.info())
+```
+
+---
+
+# 三、第二步：统一时间字段
+
+这是最重要的一步。
+
+金融数据最怕：
+
+# 时间错位
+
+---
+
+# 目标
+
+统一成：
+
+```python
+datetime
+```
+
+格式。
+
+---
+
+# 示例
+
+```python
+df['time'] = pd.to_datetime(df['time'])
+
+df = df.sort_values('time')
+
+df.set_index('time', inplace=True)
+```
+
+---
+
+# 为什么？
+
+后面：
+
+* merge
+* rolling
+* shift
+* LSTM
+
+全部依赖时间索引。
+
+---
+
+# 四、第三步：数据清洗
+
+---
+
+# 需要做什么？
+
+你必须：
+
+## 1. 缺失值处理
+
+## 2. 异常值处理
+
+## 3. 重复值处理
+
+---
+
+# 4.1 缺失值
+
+---
+
+## 查看缺失率
+
+```python
+df.isnull().sum()
+```
+
+---
+
+## 金融数据推荐：
+
+```python
+df.fillna(method='ffill', inplace=True)
+```
+
+原因：
+
+宏观指标短时间不变。
+
+---
+
+# 4.2 异常值
+
+---
+
+# 为什么重要？
+
+金融数据：
+
+* 会有错误成交量
+* 突然0值
+* 极端跳变
+
+这些会毁掉模型。
+
+---
+
+# 方法
+
+## 3σ
+
+```python
+import numpy as np
+
+mean = df['close'].mean()
+std = df['close'].std()
+
+upper = mean + 3 * std
+lower = mean - 3 * std
+
+df = df[(df['close'] < upper) & (df['close'] > lower)]
+```
+
+---
+
+# 五、第四步：EDA（探索性数据分析）
+
+这一步很多人跳过。
+
+但：
+
+# 这是整个项目最关键的一步。
+
+---
+
+# 你需要回答：
+
+## 1. 数据趋势？
+
+## 2. 波动规律？
+
+## 3. 周期性？
+
+## 4. 成交量与价格关系？
+
+## 5. 哪些指标相关？
+
+---
+
+# 代码
+
+---
+
+## 价格走势图
+
+```python
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(15,6))
+
+plt.plot(df['close'])
+
+plt.title("Close Price")
+plt.show()
+```
+
+---
+
+## 成交量
+
+```python
+plt.figure(figsize=(15,6))
+
+plt.plot(df['volume'])
+
+plt.title("Volume")
+plt.show()
+```
+
+---
+
+# 六、第五步：构造目标变量
+
+---
+
+# 问题二目标
+
+预测：
+
+```text
+未来5分钟成交量
+```
+
+---
+
+# 问题三目标
+
+预测：
+
+```text
+未来5分钟收盘价
+```
+
+---
+
+# 所以：
+
+必须 shift
+
+---
+
+# 示例
+
+```python
+df['target_volume'] = df['volume'].shift(-1)
+
+df['target_close'] = df['close'].shift(-1)
+```
+
+---
+
+# 为什么？
+
+因为：
+
+```text
+当前时刻特征
+→ 预测下一时刻
+```
+
+---
+
+# 七、第六步：特征工程（核心）
+
+这里决定模型上限。
+
+---
+
+# 目标
+
+把：
+
+```text
+原始价格
+```
+
+变成：
+
+```text
+机器学习可理解的特征
+```
+
+---
+
+# 八、收益率特征
+
+---
+
+# 代码
+
+```python
+df['return_5m'] = df['close'].pct_change()
+
+df['return_30m'] = df['close'].pct_change(6)
+```
+
+---
+
+# 为什么？
+
+模型更关注：
+
+# 涨跌速度
+
+而不是绝对价格。
+
+---
+
+# 九、均线特征
+
+---
+
+# 代码
+
+```python
+df['ma5'] = df['close'].rolling(5).mean()
+
+df['ma20'] = df['close'].rolling(20).mean()
+```
+
+---
+
+# 意义
+
+描述趋势。
+
+---
+
+# 十、波动率特征
+
+---
+
+# 代码
+
+```python
+df['volatility'] = df['return_5m'].rolling(20).std()
+```
+
+---
+
+# 十一、技术指标
+
+建议：
+
+# 用 TA-Lib
+
+---
+
+# 安装
+
+```bash
+pip install ta
+```
+
+---
+
+# 示例
+
+```python
+from ta.momentum import RSIIndicator
+
+df['rsi'] = RSIIndicator(df['close']).rsi()
+```
+
+---
+
+# 推荐指标
+
+| 指标   | 用途   |
+| ---- | ---- |
+| RSI  | 超买超卖 |
+| MACD | 趋势   |
+| KDJ  | 动量   |
+| BOLL | 波动   |
+| OBV  | 量价关系 |
+
+---
+
+# 十二、第七步：特征筛选
+
+这是问题一。
+
+---
+
+# 方法1：相关系数
+
+---
+
+# 代码
+
+```python
+corr = df.corr()
+
+target_corr = corr['target_close']
+
+print(target_corr.sort_values())
+```
+
+---
+
+# 保留：
+
+```text
+|corr| > 0.3
+```
+
+---
+
+# 方法2：随机森林重要性
+
+推荐。
+
+---
+
+# 代码
+
+```python
+from sklearn.ensemble import RandomForestRegressor
+
+X = df[features]
+y = df['target_close']
+
+model = RandomForestRegressor()
+
+model.fit(X, y)
+
+importance = model.feature_importances_
+```
+
+---
+
+# 十三、第八步：训练集测试集划分
+
+题目已经规定：
+
+---
+
+# 训练集
+
+```text
+2021/7/14 ~ 2021/12/31
+```
+
+---
+
+# 测试集
+
+```text
+2022/1/4 ~ 2022/1/28
+```
+
+---
+
+# 代码
+
+```python
+train = df[df.index < '2022-01-01']
+
+test = df[df.index >= '2022-01-04']
+```
+
+---
+
+# 十四、第九步：标准化
+
+深度学习必须做。
+
+---
+
+# 代码
+
+```python
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+
+X_train = scaler.fit_transform(X_train)
+
+X_test = scaler.transform(X_test)
+```
+
+---
+
+# 十五、第十步：XGBoost 模型
+
+推荐：
+
+# 第一个模型先写 XGBoost
+
+因为：
+
+* 快
+* 效果稳定
+* 好调试
+
+---
+
+# 安装
+
+```bash
+pip install xgboost
+```
+
+---
+
+# 代码
+
+```python
+from xgboost import XGBRegressor
+
+model = XGBRegressor(
+    n_estimators=200,
+    max_depth=6,
+    learning_rate=0.05
+)
+
+model.fit(X_train, y_train)
+```
+
+---
+
+# 预测
+
+```python
+pred = model.predict(X_test)
+```
+
+---
+
+# 十六、第十一步：模型评价
+
+---
+
+# 代码
+
+```python
+from sklearn.metrics import mean_squared_error
+
+rmse = mean_squared_error(y_test, pred)
+
+print(rmse)
+```
+
+---
+
+# 还要计算
+
+| 指标   | 含义    |
+| ---- | ----- |
+| MAE  | 平均误差  |
+| RMSE | 均方根误差 |
+| MAPE | 百分误差  |
+| R²   | 拟合优度  |
+
+---
+
+# 十七、第十二步：LSTM（重点）
+
+这是论文加分项。
+
+---
+
+# 为什么？
+
+因为：
+
+# 金融数据是时间序列。
+
+---
+
+# 十八、LSTM 输入格式
+
+LSTM 输入：
+
+```text
+[samples, timesteps, features]
+```
+
+---
+
+# 示例
+
+过去24个时间步：
+
+```python
+X.shape = (10000, 24, 30)
+```
+
+含义：
+
+```text
+10000个样本
+每个样本24个时间点
+每个时间点30个特征
+```
+
+---
+
+# 十九、构造序列数据
+
+---
+
+# 代码
+
+```python
+def create_sequence(data, target, seq_len=24):
+
+    X = []
+    y = []
+
+    for i in range(len(data)-seq_len):
+
+        X.append(data[i:i+seq_len])
+
+        y.append(target[i+seq_len])
+
+    return np.array(X), np.array(y)
+```
+
+---
+
+# 二十、LSTM 模型
+
+---
+
+# 代码
+
+```python
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import LSTM, Dense
+
+model = Sequential()
+
+model.add(LSTM(64, input_shape=(24, feature_num)))
+
+model.add(Dense(1))
+
+model.compile(
+    optimizer='adam',
+    loss='mse'
+)
+```
+
+---
+
+# 训练
+
+```python
+model.fit(
+    X_train,
+    y_train,
+    epochs=20,
+    batch_size=64
+)
+```
+
+---
+
+# 二十一、第十三步：模型融合
+
+真正比赛里：
+
+# 不会只用一个模型。
+
+---
+
+# 方法
+
+```text
+XGBoost + LSTM
+```
+
+---
+
+# 融合方式
+
+---
+
+## 加权平均
+
+```python
+final_pred = 0.5 * pred_xgb + 0.5 * pred_lstm
+```
+
+---
+
+# 二十二、第十四步：生成交易信号
+
+---
+
+# 核心
+
+预测：
+
+```text
+未来会涨？
+```
+
+---
+
+# 定义
+
+```python
+signal = pred_future_return
+```
+
+---
+
+# 买入
+
+```python
+if signal > 0.005:
+    buy
+```
+
+---
+
+# 卖出
+
+```python
+if signal < -0.005:
+    sell
+```
+
+---
+
+# 二十三、第十五步：回测系统
+
+---
+
+# 初始化
+
+```python
+cash = 1000000
+
+position = 0
+```
+
+---
+
+# 每5分钟循环
+
+```python
+for i in range(len(test)):
+```
+
+---
+
+# 买入
+
+```python
+shares = cash / price
+```
+
+---
+
+# 卖出
+
+```python
+cash = shares * price
+```
+
+---
+
+# 更新资产
+
+```python
+total_asset = cash + shares * price
+```
+
+---
+
+# 二十四、第十六步：计算收益率
+
+---
+
+# 日收益率
+
+```python
+daily_return = (
+    asset_today - asset_yesterday
+) / asset_yesterday
+```
+
+---
+
+# 总收益率
+
+```python
+total_return = (
+    final_asset / initial_asset - 1
+)
+```
+
+---
+
+# 二十五、第十七步：最大回撤
+
+---
+
+# 代码
+
+```python
+cummax = asset_curve.cummax()
+
+drawdown = (
+    asset_curve - cummax
+) / cummax
+
+mdd = drawdown.min()
+```
+
+---
+
+# 二十六、第十八步：信息比率
+
+---
+
+# 代码
+
+```python
+excess_return = strategy_return - benchmark_return
+
+IR = excess_return.mean() / excess_return.std()
+```
+
+---
+
+# 二十七、第十九步：结果可视化
+
+比赛必须有图。
+
+---
+
+# 必画：
+
+| 图          | 必须 |
+| ---------- | -- |
+| 真实值 vs 预测值 | 必须 |
+| 净值曲线       | 必须 |
+| 回撤曲线       | 必须 |
+| 特征重要性      | 必须 |
+| 收益率分布      | 推荐 |
+
+---
+
+# 二十八、最后的完整执行顺序（真正开发顺序）
+
+你应该：
+
+---
+
+# 第一阶段：数据
+
+```text
+读取数据
+→ 时间统一
+→ 缺失值
+→ 异常值
+→ 保存clean数据
+```
+
+---
+
+# 第二阶段：EDA
+
+```text
+趋势分析
+→ 波动分析
+→ 成交量分析
+→ 相关性分析
+```
+
+---
+
+# 第三阶段：特征工程
+
+```text
+收益率
+→ 均线
+→ 波动率
+→ 技术指标
+→ 时间特征
+```
+
+---
+
+# 第四阶段：特征筛选
+
+```text
+相关系数
+→ 随机森林
+→ 保留TOP特征
+```
+
+---
+
+# 第五阶段：模型
+
+```text
+先XGBoost
+→ 再LSTM
+→ 再融合
+```
+
+---
+
+# 第六阶段：交易系统
+
+```text
+预测
+→ 生成信号
+→ 回测
+→ 风险控制
+```
+
+---
+
+# 第七阶段：评价指标
+
+```text
+收益率
+→ 信息比率
+→ 最大回撤
+```
+
+---
+
+# 二十九、真正比赛里的建议
+
+你现在不要：
+
+# 一上来就搞 Transformer
+
+因为：
+
+* 太复杂
+* 容易爆炸
+* 调不出来
+
+---
+
+# 正确路线
+
+## 第一步
+
+先：
+
+# XGBoost 跑通全流程
+
+---
+
+## 第二步
+
+加入：
+
+# LSTM
+
+---
+
+## 第三步
+
+再考虑：
+
+# Attention / Transformer
+
+---
+
+# 三十、你下一步真正应该做什么
+
+建议你现在：
+
+# 先完成以下四个文件
+
+---
+
+## preprocess.py
+
+完成：
+
+* 读Excel
+* 清洗
+* 时间统一
+
+---
+
+## feature_engineering.py
+
+完成：
+
+* 收益率
+* MA
+* RSI
+* 波动率
+
+---
+
+## volume_model.py
+
+完成：
+
+* XGBoost预测成交量
+
+---
+
+## price_model.py
+
+完成：
+
+* XGBoost预测价格
+
+---
+
+等你做到这里：
+
+# 整个项目已经完成60%。
