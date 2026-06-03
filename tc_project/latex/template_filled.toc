@@ -1,0 +1,25 @@
+\contentsline {section}{\numberline {1 }问题重述}{1}{section.1}%
+\contentsline {subsection}{\numberline {1\,.\,1}问题背景}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1\,.\,2}问题概述}{1}{subsection.1.2}%
+\contentsline {section}{\numberline {2 }模型假设}{1}{section.2}%
+\contentsline {section}{\numberline {3 }符号说明}{1}{section.3}%
+\contentsline {section}{\numberline {4 }问题一模型的建立与求解}{2}{section.4}%
+\contentsline {subsection}{\numberline {4\,.\,1}问题分析}{2}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4\,.\,2}模型建立}{2}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4\,.\,3}模型求解和结果分析}{2}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4\,.\,4}模型检验}{2}{subsection.4.4}%
+\contentsline {section}{\numberline {5 }问题二模型的建立与求解}{3}{section.5}%
+\contentsline {subsection}{\numberline {5\,.\,1}模型建立}{3}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5\,.\,2}模型求解}{3}{subsection.5.2}%
+\contentsline {section}{\numberline {6 }问题三模型的建立与求解}{3}{section.6}%
+\contentsline {subsection}{\numberline {6\,.\,1}模型建立}{3}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6\,.\,2}模型求解}{3}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6\,.\,3}结果分析}{3}{subsection.6.3}%
+\contentsline {section}{\numberline {7 }模型评价}{3}{section.7}%
+\contentsline {subsection}{\numberline {7\,.\,1}模型优点}{3}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7\,.\,2}模型缺点}{3}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7\,.\,3}模型评价}{3}{subsection.7.3}%
+\contentsline {section}{参考文献}{4}{section*.3}%
+\contentsline {section}{附录 \numberline {A}问题一源代码}{5}{appendix.1.A}%
+\contentsline {section}{附录 \numberline {B}问题二源代码}{5}{appendix.1.B}%
+\contentsline {section}{附录 \numberline {C}问题三源代码}{5}{appendix.1.C}%

@@ -1,0 +1,314 @@
+\documentclass[withoutpreface,bwprint]{cumcmthesis}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{amstext} 
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{bm}
+\usepackage{url}
+\usepackage{subcaption}
+\usepackage{mathtools} 
+\usepackage[linesnumbered,ruled,lined]{algorithm2e}
+\usepackage{makecell}
+\usepackage{longtable}
+\usepackage{metalogo}
+\usepackage{setspace}
+
+\makeatletter
+\providecommand\IfPDFManagementActiveF[1]{#1}
+\makeatother
+
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[linesnumbered,ruled,lined]{algorithm2e}
+\usepackage{threeparttable}
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage{diagbox}
+\usepackage{color}
+\usepackage{transparent}
+\usepackage{import}
+\usepackage{hyperref}
+
+
+
+
+
+%\special{dvipdfmx:config z 0} %取消PDF压缩，加快速度，最终版本生成的时候最好把这句话注释掉
+\title{基于}
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\begin{abstract}\setlength{\parskip}{0.3\baselineskip}
+
+
+
+\textbf{问题1}
+
+\textbf{问题2}
+
+\textbf{问题3}
+
+\textbf{本文优点：}
+    \keywords{ \textbf{}  \quad  \textbf{ }  \quad \textbf{} \quad \textbf{}\quad \textbf{}}
+\end{abstract}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1} 
+
+
+
+
+\section{问题重述}
+\subsection{问题背景}
+
+
+
+\subsection{问题概述}
+
+
+\section{模型假设}
+
+
+
+
+
+\section{符号说明}
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{p{2.5cm}<{\centering}p{12cm}<{\centering}p{2.5cm}<{\centering}}
+    \toprule[1.5pt]
+    符号 & 含义\\
+    \midrule[1pt]
+    $w_1 $ &  不满意程度的权重    \\
+    $w_2 $ &    负面影响程度的权重   \\
+   
+    \bottomrule[1.5pt]
+    \end{tabular}
+\end{table}
+注：表中未说明的符号以首次出现处为准
+
+
+\section{问题一模型的建立与求解}
+
+\subsection{问题分析}
+
+\subsection{模型建立}
+
+\subsection {模型求解和结果分析}
+
+\subsection{模型检验}
+
+
+
+
+%此部分用于预留常用代码
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%          伪代码
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iffalse
+\begin{algorithm}
+		\caption{Function ImperialistCompetitveAlgorithm(x)}
+		\LinesNumbered
+		\textbf{Initialize}
+		\tcc{初始化：设置多个初始国家解$X_n,n=1,...,n_max$。从中选取$N$个最好质量的解使其作为$N$个帝国的殖民国家，$X_1,X_2,...,X_N$, 为每个殖民国家分配殖民国家势力比例数量的殖民地得到$N$个帝国$E_1,E_2,...,E_N$}
+		iteration = 1;
+		\textbf{Repeat}
+		\For{$i \in [1,N]$}{
+			EmpireAssimilate($E_i$) \tcc{帝国同化}
+			ColoniesRevolve($E_i$) \tcc{殖民地革命}
+			EmpirePosses($E_i$) \tcc{殖民国家替换}
+			CaculateNewCost($E_i$) \tcc{重新计算国家权力}
+		}
+		EmpireUnite({$E_1, E_2, \dots, E_N$}) \tcc{合并相似帝国}
+		EmpireCompetition({$E_1,E_2,...,E_N$}) \tcc{帝国竞争，分配殖民地}
+		iteration $\leftarrow$ iteration$+1$; {\mbox{进入下一次迭代}} \newline
+		until \mbox{只有一个帝国剩下/达到迭代次数。}
+	\end{algorithm}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%          插图
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iffalse
+%         单幅图
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{}
+    \caption{}
+    \label{fig:}
+\end{figure}
+\fi
+\iffalse
+%         两图并列
+\begin{figure}[!h]
+	\centering
+	\begin{minipage}[c]{0.48\textwidth}
+    	\centering
+	    \includegraphics[width=1\textwidth]{}
+	    \caption{}
+	    \label{fig:}
+    \end{minipage}
+    \begin{minipage}[c]{0.48\textwidth}
+		\centering
+        \includegraphics[width=1\textwidth]{}
+        \caption{}
+        \label{fig:}
+	\end{minipage}
+\end{figure}
+\fi
+\iffalse
+%       四幅子图
+\begin{figure}[H]
+	\centering
+	\subfigure[]{\includegraphics[width=.43\textwidth]{}}
+	\subfigure[]{\includegraphics[width=.43\textwidth]{}}\\
+	\subfigure[]{\includegraphics[width=.43\textwidth]{}}
+	\subfigure[]{\includegraphics[width=.43\textwidth]{}}
+	\caption{}
+	\label{fig:}
+\end{figure}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%           表格
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iffalse
+\begin{table}[!h]
+	\caption{}
+	\label{tab:}
+	\centering
+	\begin{tabular}{p{3cm}<{\centering}p{3cm}<{\centering}p{3cm}<{\centering}}
+		\toprule[1.5pt]
+		   &     &   \\ 
+		\midrule[1pt]
+		   &     &    \\
+		\bottomrule[1.5pt]
+	\end{tabular}
+\end{table}
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%           公式
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iffalse
+\begin{equation}
+    \left\{
+         \begin{array}{lr}
+       
+       \frac{R}{\sin\alpha_1}=\frac{r}{\sin(\alpha_1+\varphi)}, \\
+       \frac{R}{\sin\alpha_2}=\frac{r}{\sin(\alpha_2+\left|\theta -\varphi\right|)}.\\
+ \end{array}
+  \right.
+ \end{equation}
+
+
+\fi
+\iffalse
+\begin{aligned}
+	\max & \sum_{j} X_{12 j} \times 1000+10000-\sum_{k}\left[\left(T_{k 1}+\sum_{j=2}^{27} 2 T_{k} j\right) a_{k}\right], \\
+	\text { s.t. } & \left\{\begin{array}{l}
+	\sum_{j=0}^{30} x_{27 j}=1, \\
+	\sum_{j=0}^{30} x_{1 j} \geq 1, \\
+	x_{i j} x_{i^{\prime} j+1} \leq d_{i i^{\prime}}, \\
+	V_{j} \leq 2+M x_{12 j}, \\
+	Q_{k j}+T_{k j}-S_{k j} \geq 0, \\
+	Q_{k j+1}=Q_{k j}+T_{k j}-S_{k j}, \\
+	\\
+	3 Q_{1 j}+2 Q_{2 j} \leq 1200 .
+	\end{array}\right.
+	\end{aligned}
+\fi
+
+
+
+
+
+
+\section{问题二模型的建立与求解}
+
+\subsection {模型建立}
+
+\subsection {模型求解}
+
+
+
+
+\section{问题三模型的建立与求解}
+
+
+\subsection {模型建立}
+
+
+\subsection {模型求解}
+
+
+
+\subsection {结果分析}
+
+
+\section{模型评价}
+\subsection {模型优点}
+
+
+\subsection {模型缺点}
+
+
+\subsection{模型评价}
+
+
+
+
+
+
+\newpage
+\begin{thebibliography}{99}
+    \bibitem{1}
+    \bibitem{2}
+    \bibitem{3}
+    \bibitem{4}
+    \bibitem{5}
+    \bibitem{7}
+    \bibitem{8}
+    \bibitem{9}
+    \bibitem{10}
+    \bibitem{11}
+    \bibitem{12}
+    \bibitem{13}
+    \bibitem{14}
+        
+\end{thebibliography}
+
+
+
+\newpage
+\begin{appendices}
+
+
+\section{问题一源代码}
+\begin{lstlisting}[language=lingo]
+
+
+\end{lstlisting}
+
+
+\section{问题二源代码}
+\begin{lstlisting}[language=lingo]
+
+  
+\end{lstlisting}
+
+\section{问题三源代码}
+\begin{lstlisting}[language=lingo]
+
+\end{lstlisting}
+
+\begin{lstlisting}[language=python]
+
+
+
+\end{lstlisting}
+\end{appendices}
+\end{document}

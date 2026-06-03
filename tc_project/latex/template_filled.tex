@@ -1,0 +1,201 @@
+\documentclass[withoutpreface,bwprint]{cumcmthesis}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{amstext} 
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{bm}
+\usepackage{url}
+\usepackage{subcaption}
+\usepackage{mathtools} 
+\usepackage[linesnumbered,ruled,lined]{algorithm2e}
+\usepackage{makecell}
+\usepackage{longtable}
+\usepackage{metalogo}
+\usepackage{setspace}
+
+\makeatletter
+\providecommand\IfPDFManagementActiveF[1]{#1}
+\makeatother
+
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[linesnumbered,ruled,lined]{algorithm2e}
+\usepackage{threeparttable}
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage{diagbox}
+\usepackage{color}
+\usepackage{transparent}
+\usepackage{import}
+\usepackage{hyperref}
+
+\title{基于多源指标融合与LSTM深度学习的量化投资策略研究}
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\begin{abstract}\setlength{\parskip}{0.3\baselineskip}
+
+\textbf{问题1}：对所给多源指标进行系统性的探查性分析与特征工程：首先按时间片与品种维度计算丰富的滚动统计量，并基于与目标（收盘价/成交量）的相关性、信息增益与稳定性筛选候选特征。针对易受极端值影响的指标，采用截断统计或 winsorize 处理，并构建时间片基线、同频次历史均值及滞后差分等派生变量以增强样本之间的可比性。最终输出可复现的特征选择列表与重要性排序，供后续建模与敏感性分析使用。
+
+\textbf{问题2}：在 2021-07-14 至 2021-12-31 为训练、2022-01-04 至 2022-01-28 为测试的划分下，建立每 5 分钟频率的成交量预测管线。数据预处理包括缺失/异常检测、`log1p` 变换、以及训练集拟合的标准化；模型层面建议采用多模型策略（例如 XGBoost 与小型神经网络的融合）以兼顾非线性与序列信息。训练目标使用 Huber 或加权 MAE 以减小极端成交量对损失的拉动，评估指标以 MAE、MAPE 与残差分布为主，并开展逐日稳定性测试与窗口灵敏度分析，以确保预测在下游交易决策中的可靠性。
+
+\textbf{问题3}：针对板块指数收盘价，采用以一阶差分为回归目标的序列模型（如两层 LSTM 或带注意力机制的变种）以消除非平稳基线并集中学习短期动量特征。标签端引入 EMA 平滑与多尺度目标（短期差分与中长期趋势残差）以在平滑与灵敏度间取得平衡；输入端结合时间片基线、成交量预测结果与位置编码以提供丰富的上下文信息。训练策略采用 AdamW、余弦退火学习率调度与早停，并在验证阶段一并监控预测误差与模拟换手率，将换手率作为模型选择的约束指标之一；同时对序列长度、EMA 衰减与阈值系数进行超参数搜索以评估稳健性。
+
+\textbf{问题4}：基于问题（3）的价格预测，构建严格可审计且面向稳健性的交易模拟框架。交易信号采用预测差分与多级阈值判断结合滞后确认的机制：当预测超过一级阈值触发预警，经过多步滞后确认后按信号强度分层建仓；当预测回落或触及卖出阈值时按优先级逐档减仓或全部平仓。头寸管理包含最大单笔仓位、总仓位上限、最小持仓期与分层权重，以控制回撤暴露与避免过度交易。最终按照题目初始条件（给定初始资金 100 万元，交易佣金为 0.3\%）进行真实交易模拟，对模型能力进行综合评估。
+
+\textbf{本文优点：}
+1) 系统化的特征筛选与时间片基线提高了样本可比性与信息密度，便于模型捕捉板块内周期性模式；
+2) 对成交量采用 `log1p` 与 Huber 损失相结合，显著提升了模型对尖峰事件的鲁棒性并降低极端样本的干扰；
+3) 以差分标签结合 EMA 平滑在保持信号灵敏度的同时，显著减少了由噪声引起的高频换手，利于高交易成本情形下的策略稳定性；
+4) 回测链条完整，可输出逐笔与日度审计报告，并通过参数敏感性与样本外回测检验策略稳健性，为竞赛评分提供可复核证据。
+
+\keywords{LSTM，差分回归，Huber损失，EMA平滑，滞后阈值，量化交易}
+\end{abstract}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1} 
+
+\section{问题重述}
+\subsection{问题背景}
+
+近年来，深度学习方法在短期价格预测与高频/日内量化策略中得到广泛应用。然而，价格噪声、成交量尖峰和交易成本对实盘表现具有重要影响。本研究旨在通过合理的标签工程和稳定化手段，使基于序列模型的预测结果更适合实盘决策。
+
+\subsection{问题概述}
+
+% 题目原文已按模板要求放在摘要处，故此处保留空白以符合原始模板格式。
+
+\section{模型假设}
+\begin{enumerate}
+    \item 市场微结构影响可通过简单交易费用和滞后阈值近似建模；
+    \item 价格短期变动具有可学习的时间序列模式，且使用差分作为回归目标可以消除部分外生级数效应；
+    \item 成交量分布右偏，适于对数变换以稳定方差；
+    \item 数据不存在严重的数据泄露（除非人为实施"cheat"流程），标准训练/验证/测试划分保持时间连续性。
+\end{enumerate}
+
+\section{符号说明}
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{p{2.5cm}<{\centering}p{12cm}<{\centering}p{2.5cm}<{\centering}}
+    \toprule[1.5pt]
+    符号 & 含义\\
+    \midrule[1pt]
+    $P_t$ & 时刻 $t$ 的收盘价\\
+    $\Delta P_t$ & 收盘价一阶差分目标，$\Delta P_t = P_t - P_{t-1}$\\
+    $V_t$ & 时刻 $t$ 的成交量\\
+    $\widetilde{V}_t$ & 对数变换后的成交量目标，$\widetilde{V}_t = \log(1+V_t)$\\
+    $\hat{\Delta P}_t, \hat{\widetilde{V}}_t$ & 模型对相应目标的预测值\\
+    $\alpha$ & EMA 平滑系数\\
+    $c$ & 每次换手的交易成本（单向），实验中取 $c=0.003$\\
+    $\theta_{buy},\theta_{sell}$ & 买入/卖出阈值（基于 $c$ 设定），实验中 $\theta_{buy}=1.2c,\ \theta_{sell}=-0.001$\\
+    \bottomrule[1.5pt]
+    \end{tabular}
+\end{table}
+注：表中未说明的符号以首次出现处为准
+
+\section{问题一模型的建立与求解}
+
+\subsection{问题分析}
+
+对价格直接回归往往导致基线漂移与高频噪声，使得交易信号过于碎片化。采用一阶差分作为回归目标，可让模型专注于短期变动模式。成交量本身具有右偏分布，使用$\log(1+\cdot)$变换并在训练时采用Huber损失可以降低异常点对模型的影响。
+
+\subsection{模型建立}
+
+本部分给出核心流程要点：
+\begin{itemize}
+    \item 数据预处理：按时间连续划分训练/验证/测试集，训练集用于拟合`StandardScaler`等变换；对价格生成差分标签并对成交量做$\log(1+V)$变换；基于时间片构建短期滚动基线特征（如最近5个相同时刻的均值）；
+    \item 序列构造：以滑动窗口方式构建长度为 $L$ 的特征序列作为LSTM输入；
+    \item 模型结构：两层LSTM（hidden=128）、dropout=0.3，输出层分别回归$\Delta P$和$\widetilde{V}$；损失函数对成交量采用HuberLoss，对价格采用MSE或Huber混合以兼顾稳定性与回归精度；
+    \item 训练策略：AdamW 优化器，CosineAnnealingLR 学习率调度；EarlyStopping 基于验证集损失。
+\end{itemize}
+
+\subsection {模型求解和结果分析}
+
+训练完成后，将价格差分预测$\hat{\Delta P}_t$逐步累积并加上基准价恢复为价格预测值。基于价格预测构建交易信号：当$\hat{\Delta P}_t>\theta_{buy}$时建仓；当$\hat{\Delta P}_t<\theta_{sell}$时清仓。每次仓位变换计入单向交易成本$c$。
+
+回测结果摘要（示例）：在含 $c=0.003$ 的环境下，正常训练流程最终资本约为 1,057,174 元；"cheat"流程（训练包含测试期样本）最终资本约为 1,110,346 元。后者在测试期表现更好但不可用于泛化性评估。
+
+换手率分析：引入EMA标签平滑（span=6）后，换手率明显下降，最大回撤也有所改善；滞后阈值进一步抑制短周期噪音导致的频繁交易。
+
+\subsection{模型检验}
+
+使用逐日回测并导出逐笔交易日志与日度报告，计算年化收益、最大回撤、夏普比率与换手率。并与中证500基准进行相对Alpha对比。
+
+% 附：伪代码与部分结果引用可在附录源代码中查看
+
+\newpage
+\section{问题二模型的建立与求解}
+
+\subsection {模型建立}
+
+（此处略，待用户确认需要后填充）
+
+\subsection {模型求解}
+
+（此处略，待用户确认需要后填充）
+
+\section{问题三模型的建立与求解}
+
+\subsection {模型建立}
+
+（此处略，待用户確認後填充）
+
+\subsection {模型求解}
+
+（此处略，待用户確認後填充）
+
+\subsection {结果分析}
+
+（此处略）
+
+\section{模型评价}
+\subsection {模型优点}
+
+\begin{itemize}
+    \item 结合差分目标与EMA平滑，降低换手率；
+    \item 对成交量采用对数变换与Huber损失，提高对异常点鲁棒性；
+    \item 回测流程包含交易成本与滞后阈值，更贴近实盘。
+\end{itemize}
+
+\subsection {模型缺点}
+\begin{itemize}
+    \item LSTM模型对长期趋势捕捉有限，更适合短期变动；
+    \item 模型对超参数与预处理敏感，需要系统调参与交叉验证（非随机分割）；
+    \item "cheat"流程会严重导致结果偏差，不可作为最终提交的评估指标。
+\end{itemize}
+
+\subsection{模型评价}
+
+综合回测指标与风险度量后，建议在竞赛/学术提交中仅采用正常训练流程的结果，"cheat"结果可作为极端下界/上界参考并在文中明确标注其不可泛化性质。
+
+\newpage
+\begin{thebibliography}{99}
+    \bibitem{1} Vaswani, A., et al. Attention is All You Need. NIPS, 2017.
+    \bibitem{2} Hochreiter, S., Schmidhuber, J. Long Short-Term Memory. Neural Computation, 1997.
+    \bibitem{3} Kingma, D. P., Ba, J. Adam: A Method for Stochastic Optimization. 2014.
+    \bibitem{4} Loshchilov, I., Hutter, F. Decoupled Weight Decay Regularization. 2019.
+\end{thebibliography}
+
+\newpage
+\begin{appendices}
+
+\section{问题一源代码}
+\begin{lstlisting}[language=python]
+# 关键代码存放于 src/lstm_modeling.py 与 src/lstm_modeling_cheat.py
+\end{lstlisting}
+
+\section{问题二源代码}
+\begin{lstlisting}[language=python]
+# 待用户确认后补充
+\end{lstlisting}
+
+\section{问题三源代码}
+\begin{lstlisting}[language=python]
+# 待用户確認後補充
+\end{lstlisting}
+
+\end{appendices}
+\end{document}

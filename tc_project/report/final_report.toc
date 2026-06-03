@@ -1,0 +1,76 @@
+\enlargethispage {\baselineskip }
+\contentsline {section}{\numberline {1 }问题重述}{1}{section.1}%
+\contentsline {subsection}{\numberline {1\,.\,1}问题背景}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1\,.\,2}问题概述}{1}{subsection.1.2}%
+\contentsline {section}{\numberline {2 }模型假设}{2}{section.2}%
+\contentsline {section}{\numberline {3 }符号说明}{3}{section.3}%
+\contentsline {section}{\numberline {4 }数据预处理与探索性分析}{4}{section.4}%
+\contentsline {subsection}{\numberline {4\,.\,1}原始数据结构分析}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4\,.\,2}缺失值处理与时间对齐}{6}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4\,.\,3}异常值分析与处理}{7}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4\,.\,4}相关性热力图分析}{8}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4\,.\,5}高频时间序列统计特性分析}{10}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4\,.\,5\,.\,1}非平稳性}{10}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4\,.\,5\,.\,2}波动聚集性}{10}{subsubsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4\,.\,5\,.\,3}高频噪声特征}{11}{subsubsection.4.5.3}%
+\contentsline {subsection}{\numberline {4\,.\,6}成交量日内结构分析}{11}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4\,.\,7}本节小结}{11}{subsection.4.7}%
+\contentsline {section}{\numberline {5 }特征分析与指标提取}{12}{section.5}%
+\contentsline {subsection}{\numberline {5\,.\,1}基础价格特征构建}{12}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5\,.\,2}移动平均趋势特征}{13}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5\,.\,3}波动率特征构建}{14}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5\,.\,4}MACD动量指标构建}{15}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5\,.\,5}RSI超买超卖指标}{16}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5\,.\,6}成交量特征分析与建模差异}{16}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5\,.\,7}时间周期特征构建}{17}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5\,.\,8}跨市场关联特征}{18}{subsection.5.8}%
+\contentsline {subsection}{\numberline {5\,.\,9}特征标准化处理}{18}{subsection.5.9}%
+\contentsline {subsection}{\numberline {5\,.\,10}本节小结}{18}{subsection.5.10}%
+\contentsline {section}{\numberline {6 }高频预测模型的建立}{19}{section.6}%
+\contentsline {subsection}{\numberline {6\,.\,1}LSTM模型基本原理}{19}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6\,.\,2}滑动窗口输入结构}{20}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6\,.\,3}收盘价预测模型建立}{20}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6\,.\,4}成交量预测中的拟合灾难问题}{21}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6\,.\,5}成交量预测模型改进}{22}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6\,.\,5\,.\,1}对数压缩处理}{22}{subsubsection.6.5.1}%
+\contentsline {subsubsection}{\numberline {6\,.\,5\,.\,2}Huber Loss 鲁棒损失函数}{23}{subsubsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6\,.\,5\,.\,3}时间位置特征}{23}{subsubsection.6.5.3}%
+\contentsline {subsubsection}{\numberline {6\,.\,5\,.\,4}动态时间锚点}{23}{subsubsection.6.5.4}%
+\contentsline {subsection}{\numberline {6\,.\,6}模型训练参数设置}{24}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6\,.\,7}本节小结}{26}{subsection.6.7}%
+\contentsline {section}{\numberline {7 }问题四：交易策略与回测分析}{27}{section.7}%
+\contentsline {subsection}{\numberline {7\,.\,1}问题分析}{27}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7\,.\,2}交易策略设计}{27}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7\,.\,2\,.\,1}预期收益率计算}{27}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7\,.\,2\,.\,2}EMA信号平滑}{28}{subsubsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7\,.\,2\,.\,3}迟滞状态机（Hysteresis Mechanism）}{28}{subsubsection.7.2.3}%
+\contentsline {subsubsection}{\numberline {7\,.\,2\,.\,4}交易成本核算}{29}{subsubsection.7.2.4}%
+\contentsline {subsection}{\numberline {7\,.\,3}回测框架建立}{29}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7\,.\,4}策略回测结果分析}{29}{subsection.7.4}%
+\contentsline {subsubsection}{\numberline {7\,.\,4\,.\,1}总体绩效分析}{29}{subsubsection.7.4.1}%
+\contentsline {subsubsection}{\numberline {7\,.\,4\,.\,2}超额收益分析}{30}{subsubsection.7.4.2}%
+\contentsline {subsubsection}{\numberline {7\,.\,4\,.\,3}日度绩效分析}{31}{subsubsection.7.4.3}%
+\contentsline {subsubsection}{\numberline {7\,.\,4\,.\,4}关键绩效指标分析}{32}{subsubsection.7.4.4}%
+\contentsline {subsection}{\numberline {7\,.\,5}信息比率分析}{33}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7\,.\,6}换手率与风险控制分析}{34}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7\,.\,7}模型检验与稳健性分析}{34}{subsection.7.7}%
+\contentsline {subsubsection}{\numberline {7\,.\,7\,.\,1}参数敏感性分析}{34}{subsubsection.7.7.1}%
+\contentsline {subsubsection}{\numberline {7\,.\,7\,.\,2}稳健性检验}{34}{subsubsection.7.7.2}%
+\contentsline {subsubsection}{\numberline {7\,.\,7\,.\,3}基准对比分析}{35}{subsubsection.7.7.3}%
+\contentsline {subsection}{\numberline {7\,.\,8}本节小结}{35}{subsection.7.8}%
+\contentsline {section}{\numberline {8 }模型评价}{36}{section.8}%
+\contentsline {subsection}{\numberline {8\,.\,1}模型优点}{36}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8\,.\,2}模型缺点}{36}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8\,.\,3}模型评价}{36}{subsection.8.3}%
+\contentsline {section}{参考文献}{37}{section*.29}%
+\contentsline {section}{附录 \numberline {A}问题一源代码}{38}{appendix.1.A}%
+\contentsline {subsection}{\numberline {1\,.\,1}parse\_raw\_data.py}{38}{subsection.1.A.1}%
+\contentsline {subsection}{\numberline {1\,.\,2}eda\_and\_cleaning.py}{38}{subsection.1.A.2}%
+\contentsline {subsection}{\numberline {1\,.\,3}correlation\_analysis.py}{39}{subsection.1.A.3}%
+\contentsline {subsection}{\numberline {1\,.\,4}feature\_selection.py}{39}{subsection.1.A.4}%
+\contentsline {subsection}{\numberline {1\,.\,5}question\_solver.py}{40}{subsection.1.A.5}%
+\contentsline {section}{附录 \numberline {B}模型核心代码}{42}{appendix.1.B}%
+\contentsline {subsection}{\numberline {2\,.\,1}preprocess.py}{42}{subsection.1.B.1}%
+\contentsline {subsection}{\numberline {2\,.\,2}lstm\_modeling.py}{43}{subsection.1.B.2}%
+\contentsline {section}{附录 \numberline {C}问题四源代码}{48}{appendix.1.C}%
+\contentsline {subsection}{\numberline {3\,.\,1}strategy\_backtest.py}{48}{subsection.1.C.1}%
