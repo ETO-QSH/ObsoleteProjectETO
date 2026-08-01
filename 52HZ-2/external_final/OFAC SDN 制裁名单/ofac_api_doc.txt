@@ -1,0 +1,439 @@
+
+
+OFAC’s Sanctions List Service
+Basic Application Programing Interface (API) Documentation 
+
+An application program interface is a mechanism that allows users to run multiple information systems to communicate, often in an automated or scripted fashion.   OFAC’s Sanctions List Service (SLS) supports API “get” commands that allow users to bypass the SLS user interface and retrieve sanctions list data directly from SLS’ backend databases.  
+OFAC understands that many users of its data are members of the sanctions compliance community, and that automated screening is a key compliance function in multiple industries.  The SLS API allows users to automate their data pulls from the SLS application.   Before OFAC developed a list management application with API support, users of OFAC data had to download an entire sanctions list and process those data on the user end.  The Get commands that the SLS API supports allow users to choose which list they want to download or which part of a list they want to download.   Users can choose to make these API requests as frequently as they would like. The following commands are supported by the SLS API.  
+SLS Public External APIs
+Entities
+GET https://sanctionslistservice.ofac.treas.gov/entities
+GET https://sanctionslistservice.ofac.treas.gov/entities/{entity-id}
+GET https://sanctionslistservice.ofac.treas.gov/entities?list={list-name}
+GET https://sanctionslistservice.ofac.treas.gov/entities?program={program-name}
+GET https://sanctionslistservice.ofac.treas.gov/entities?list={list-name}&program={program-name}
+Files
+GET https://sanctionslistservice.ofac.treas.gov/api/download/{filename}
+List
+GET https://sanctionslistservice.ofac.treas.gov/changes/latest
+GET https://sanctionslistservice.ofac.treas.gov/changes/{publication-id}
+GET https://sanctionslistservice.ofac.treas.gov/changes/history/{year}
+GET https://sanctionslistservice.ofac.treas.gov/changes/history/{year}/{month}
+GET https://sanctionslistservice.ofac.treas.gov/changes/history/{year}/{month}/{day}
+GET https://sanctionslistservice.ofac.treas.gov/sanctions-lists
+GET https://sanctionslistservice.ofac.treas.gov/sanctions-programs
+Customized Sanction Dataset
+GET https://sanctionslistservice.ofac.treas.gov/api/Customize/GetCustomizeList
+Utility 
+GET https://sanctionslistservice.ofac.treas.gov/alive
+Entities
+GET https://sanctionslistservice.ofac.treas.gov/entities
+Description: Retrieves meta data related to a collection of entities based on either the entity Id, program, or sanction list
+
+
+curl -X 'GET' \
+  'https://sanctionslistservice.ofac.treas.gov/entities?Id=30629&Program=CUBA' \
+  -H 'accept: */*'
+Request URL
+https://sanctionslistservice.ofac.treas.gov/entities?Id=30629&Program=CUBA
+
+ 
+
+ GET https://sanctionslistservice.ofac.treas.gov/entities/{entity-id}
+Description: Retrieves meta data related an entity based on the entity Id
+
+Curl
+curl -X 'GET' \
+  'https://sanctionslistservice.ofac.treas.gov/entities/30629' \
+  -H 'accept: */*'
+Request URL
+https://sanctionslistservice.ofac.treas.gov/entities/30629
+
+Server response
+<?xml version="1.0" encoding="utf-8"?>
+  <entities>
+    <entity id="30629">
+      <generalInfo>
+        <identityId>22313</identityId>
+        <entityType refId="601">Entity</entityType>
+      </generalInfo>
+      <sanctionsLists>
+        <sanctionsList refId="1550" id="31269" datePublished="2020-12-21">SDN List</sanctionsList>
+      </sanctionsLists>
+      <sanctionsPrograms>
+        <sanctionsProgram refId="202" id="33166">CUBA</sanctionsProgram>
+      </sanctionsPrograms>
+      <sanctionsTypes>
+        <sanctionsType refId="1705" id="22787">Block</sanctionsType>
+      </sanctionsTypes>
+      <legalAuthorities>
+        <legalAuthority refId="91707" id="19621">Cuban Assets Control Regulations (CACR)</legalAuthority>
+      </legalAuthorities>
+      <names>
+        <name id="48173">
+          <isPrimary>true</isPrimary>
+          <isLowQuality>false</isLowQuality>
+          <translations>
+            <translation id="42433">
+              <isPrimary>true</isPrimary>
+              <script refId="20122">Latin</script>
+              <formattedLastName>KAVE COFFEE S.A.</formattedLastName>
+              <formattedFullName>KAVE COFFEE S.A.</formattedFullName>
+	     <nameParts>
+                <namePart id="82583">
+                  <type refId="1521">First Name</type>
+                  <value>Alaa</value>
+                </namePart>
+                <namePart id="82582">
+                  <type refId="1520">Last Name</type>
+                  <value>AL-SAMAHI</value>
+                </namePart>
+                <namePart id="82584">
+                  <type refId="1522">Middle Name</type>
+                  <value>Ali Ali Mohammed</value>
+                </namePart>
+              </nameParts>
+            </translation>
+          </translations>
+        </name>
+        <name id="48700">
+          <isPrimary>false</isPrimary>
+          <aliasType refId="1400">A.K.A.</aliasType>
+          <isLowQuality>false</isLowQuality>
+          <translations>
+            <translation id="43088">
+              <isPrimary>true</isPrimary>
+              <script refId="20122">Latin</script>
+              <formattedFirstName>Allaa</formattedFirstName>
+              <formattedLastName>AL-SAMAHY</formattedLastName>
+              <formattedFullName>AL-SAMAHY, Allaa</formattedFullName>
+              <nameParts>
+                <namePart id="82586">
+                  <type refId="1521">First Name</type>
+                  <value>Allaa</value>
+                </namePart>
+                <namePart id="82585">
+                  <type refId="1520">Last Name</type>
+                  <value>AL-SAMAHY</value>
+                </namePart>
+              </nameParts>
+            </translation>
+          </translations>
+        </name>
+      </names>
+      <addresses>
+        <address id="46835">
+          <country refId="11205">Turkey</country>
+          <translations>
+            <translation id="40943">
+              <isPrimary>true</isPrimary>
+              <script refId="20122">Latin</script>
+            </translation>
+          </translations>
+        </address>
+      </addresses>
+      <features>
+        <feature id="39086">
+          <type featureTypeId="8">Birthdate</type>
+          <versionId>36805</versionId>
+          <value>08 Sep 1976</value>
+          <valueDate id="53731">
+            <fromDateBegin>1976-09-08</fromDateBegin>
+            <fromDateEnd>1976-09-08</fromDateEnd>
+            <toDateBegin>1976-09-08</toDateBegin>
+            <toDateEnd>1976-09-08</toDateEnd>
+            <isApproximate>false</isApproximate>
+            <isDateRange>false</isDateRange>
+          </valueDate>
+          <isPrimary>true</isPrimary>
+        </feature>
+        <feature id="39087">
+          <type featureTypeId="8">Birthdate</type>
+          <versionId>36806</versionId>
+          <value>1981</value>
+          <valueDate id="53732">
+            <fromDateBegin>1981-01-01</fromDateBegin>
+            <fromDateEnd>1981-01-01</fromDateEnd>
+            <toDateBegin>1981-12-31</toDateBegin>
+            <toDateEnd>1981-12-31</toDateEnd>
+            <isApproximate>false</isApproximate>
+            <isDateRange>false</isDateRange>
+          </valueDate>
+          <isPrimary>false</isPrimary>
+        </feature>
+        <feature id="39088">
+          <type featureTypeId="224">Gender</type>
+          <versionId>36807</versionId>
+          <value>Male</value>
+          <valueRefId>91526</valueRefId>
+          <isPrimary>true</isPrimary>
+        </feature>
+      </features>
+    </entity>
+  </entities>
+
+
+
+
+
+GET https://sanctionslistservice.ofac.treas.gov/entities?list={list-name}
+Description: Retrieves meta data related to a collection of entities based on the sanction list provided.
+
+GET https://sanctionslistservice.ofac.treas.gov/entities?program={program-name}
+Description: Retrieves meta data related to a collection of entities based program name provided.
+
+GET https://sanctionslistservice.ofac.treas.gov/entities?list={list-name}&program={program-name}
+Description: Retrieves meta data related to a collection of entities based on the sanction list and program name provided.
+File Download API Calls
+GET https://sanctionslistservice.ofac.treas.gov/api/download/{filename}
+Description: Retrieves export flies based on file name
+Files Available:
+List API Calls
+The following API calls retrieve information on metadata for list changes, publication information for each list, and the Sanction List delta files based on publication id. 
+
+GET https://sanctionslistservice.ofac.treas.gov/changes/latest
+Description: The following API call retrieves the latest published Sanction List delta file in xml format 
+
+Curl
+curl -X 'GET' \
+  'https://sanctionslistservice.ofac.treas.gov/changes/latest' \
+  -H 'accept: */*'
+Request URL
+https://sanctionslistservice.ofac.treas.gov/changes/latest
+
+
+
+GET https://sanctionslistservice.ofac.treas.gov/changes/{publication-id}
+
+Description: The following API call returns a sanction list delta file based on a publication unique id
+Curl
+curl -X 'GET' \
+  'https://sanctionslistservice.ofac.treas.gov/changes/1' \
+  -H 'accept: */*'
+Request URL
+https://sanctionslistservice.ofac.treas.gov/changes/1
+Server response
+
+GET https://sanctionslistservice.ofac.treas.gov/changes/history/{year}
+Description: The following API call retrieves a list of publications based on year
+
+
+Curl
+curl -X 'GET' \
+  'https://sanctionslistservice.ofac.treas.gov/changes/history/2024' \
+  -H 'accept: */*'
+Request URL
+https://sanctionslistservice.ofac.treas.gov/changes/history/2024
+Response body
+[
+  {
+    "publicationID": 1,
+    "datePublished": "2024-03-04T12:55:54.171841"
+  },
+  {
+    "publicationID": 2,
+    "datePublished": "2024-03-04T13:06:50.615692"
+  },
+  {
+    "publicationID": 3,
+    "datePublished": "2024-03-04T15:41:59.142461"
+  },
+  {
+    "publicationID": 4,
+    "datePublished": "2024-03-04T15:47:38.320062"
+  },
+  {
+    "publicationID": 5,
+    "datePublished": "2024-03-04T15:56:40.553935"
+  }
+]
+
+GET https://sanctionslistservice.ofac.treas.gov/changes/history/{year}/{month}
+Description: The following API call retrieves a list of publications based on year and month
+
+
+Curl
+curl -X 'GET' \
+  'https://sanctionslistservice.ofac.treas.gov/changes/history/2024/02' \
+  -H 'accept: */*'
+Request URL
+https://sanctionslistservice.ofac.treas.gov/changes/history/2024/02
+
+[
+  {
+    "publicationID": 1,
+    "datePublished": "2024-03-04T12:55:54.171841"
+  },
+  {
+    "publicationID": 2,
+    "datePublished": "2024-03-04T13:06:50.615692"
+  },
+  {
+    "publicationID": 3,
+    "datePublished": "2024-03-04T15:41:59.142461"
+ }
+]
+
+
+GET https://sanctionslistservice.ofac.treas.gov/changes/history/{year}/{month}/{day}
+Description: The following API call retrieves a list of publications based on year, month, and day
+
+Curl
+curl -X 'GET' \
+  'https://sanctionslistservice.ofac.treas.gov/changes/history/2024/03/04' \
+  -H 'accept: */*'
+Request URL
+https://sanctionslistservice.ofac.treas.gov/changes/history/2024/03/04
+
+[
+  {
+    "publicationID": 1,
+    "datePublished": "2024-03-04T12:55:54.171841"
+  },
+  {
+    "publicationID": 2,
+    "datePublished": "2024-03-04T13:06:50.615692"
+  },
+  {
+    "publicationID": 3,
+    "datePublished": "2024-03-04T15:41:59.142461"
+ }
+]
+
+GET https://sanctionslistservice.ofac.treas.gov/sanctions-lists
+Description: The following API call retrieves all sanction list names
+
+Curl
+curl -X 'GET' \
+  'https://sanctionslistservice.ofac.treas.gov/sanctions-lists' \
+  -H 'accept: */*'
+Request URL
+https://sanctionslistservice.ofac.treas.gov/sanctions-lists
+Response body
+
+[
+  "SDN List",
+  "Non-SDN Palestinian Legislative Council List",
+  "FSE List",
+  "Sectoral Sanctions Identifications List",
+  "Consolidated List",
+  "CAPTA List",
+  "Non-SDN Menu-Based Sanctions List",
+  "Non-SDN CMIC List"
+]
+
+
+GET https://sanctionslistservice.ofac.treas.gov/sanctions-programs
+Description: The following API call retrieves all sanction program names
+
+Curl
+curl -X 'GET' \
+  'https://sanctionslistservice.ofac.treas.gov/sanctions-programs' \
+  -H 'accept: */*'
+Request URL
+https://sanctionslistservice.ofac.treas.gov/sanctions-programs
+
+Response Body
+[
+  "CUBA",
+  "SDNTK",
+  "FTO",
+  "IRAN",
+  "SDGT",
+  "SDNT",
+  "SYRIA",
+  "ZIMBABWE",
+  "IRAQ2",
+  "BALKANS",
+  "NPWMD",
+  "NS-PLC",
+  "BELARUS",
+  "DRCONGO",
+  "DARFUR",
+  "IRAQ3",
+  "LEBANON",
+  "SOMALIA",
+  "IRGC",
+  "IFSR",
+  "DPRK",
+  "IRAN-HR",
+  "LIBYA2",
+  "ISA",
+  "TCO",
+  "HRIT-SY",
+  "HRIT-IR",
+  "FSE-SY",
+  "FSE-IR",
+  "YEMEN",
+  "IRAN-TRA",
+  "MAGNIT",
+  "IFCA",
+  "UKRAINE-EO13660",
+  "CAR",
+  "SOUTH SUDAN",
+  "UKRAINE-EO13661",
+  "UKRAINE-EO13662",
+  "LIBYA3",
+  "DPRK2",
+  "UKRAINE-EO13685",
+  "VENEZUELA",
+  "DPRK3",
+  "CYBER2",
+  "DPRK4",
+  "GLOMAG",
+  "CAATSA - IRAN",
+  "CAATSA - RUSSIA",
+  "ELECTION-EO13848",
+  "NICARAGUA",
+  "VENEZUELA-EO13850",
+  "561-Related",
+  "IRAN-EO13871",
+  "NICARAGUA-NHRAA",
+  "DPRK-NKSPEA",
+  "IRAN-EO13876",
+  "MALI-EO13882",
+  "IRAN-EO13846",
+  "HIFPAA",
+  "SYRIA-EO13894",
+  "VENEZUELA-EO13884",
+  "IRAN-EO13902",
+  "ILLICIT-DRUGS-EO14059",
+  "SYRIA-CAESAR",
+  "HK-EO13936",
+  "IRAN-CON-ARMS-EO",
+  "PEESA",
+  "BURMA-EO14014",
+  "RUSSIA-EO14024",
+  "CMIC-EO13959",
+  "PEESA-EO14039",
+  "BELARUS-EO14038",
+  "BALKANS-EO14033",
+  "ETHIOPIA-EO14046",
+  "SSIDES",
+  "RUSSIA-EO14065",
+  "HOSTAGES-EO14078",
+  "UHRPA",
+  "SUDAN-EO14098",
+  "BPI-RUSSIA-EO14024",
+  "WEST-BANK-EO14115"
+]
+
+
+Customized Sanction Dataset
+GET https://sanctionslistservice.ofac.treas.gov/api/Customize/GetCustomizeList
+Description: The following API call retrieves an xml file containing all entities based on the provided parameters of publication date and sanction list type of SDN or CONS(Consolidated List)
+
+
+
+GET 	
+Description: The following API call provides a health status of the Sanction List API
+
+
+Curl
+curl -X 'GET' \
+  'https://sanctionslistservice.ofac.treas.gov/alive' \
+  -H 'accept: */*'
+Request URL
+https://sanctionslistservice.ofac.treas.gov/alive
+Response
+200 HTTP Status code
