@@ -1,0 +1,653 @@
+{
+  "report": "Paris MoU Annual Report 2025",
+  "valid_period": "1 July 2026 until 6 July 2027",
+  "data_period": "2023-2025",
+  "lists": {
+    "white_list": {
+      "description": "Flags with significantly better than average detention performance",
+      "entries": [
+        {
+          "rank": 1,
+          "flag": "Cayman Islands, UK",
+          "inspections": 299,
+          "detentions": 0,
+          "black_to_grey_limit": 29,
+          "grey_to_white_limit": 13,
+          "excess_factor": -1.95
+        },
+        {
+          "rank": 2,
+          "flag": "Sweden",
+          "inspections": 312,
+          "detentions": 1,
+          "black_to_grey_limit": 30,
+          "grey_to_white_limit": 14,
+          "excess_factor": -1.81
+        },
+        {
+          "rank": 3,
+          "flag": "Norway",
+          "inspections": 1742,
+          "detentions": 23,
+          "black_to_grey_limit": 140,
+          "grey_to_white_limit": 104,
+          "excess_factor": -1.72
+        },
+        {
+          "rank": 4,
+          "flag": "Denmark",
+          "inspections": 1163,
+          "detentions": 15,
+          "black_to_grey_limit": 96,
+          "grey_to_white_limit": 67,
+          "excess_factor": -1.68
+        },
+        {
+          "rank": 5,
+          "flag": "Japan",
+          "inspections": 244,
+          "detentions": 1,
+          "black_to_grey_limit": 24,
+          "grey_to_white_limit": 10,
+          "excess_factor": -1.67
+        },
+        {
+          "rank": 6,
+          "flag": "Singapore",
+          "inspections": 1727,
+          "detentions": 27,
+          "black_to_grey_limit": 139,
+          "grey_to_white_limit": 103,
+          "excess_factor": -1.62
+        },
+        {
+          "rank": 7,
+          "flag": "France",
+          "inspections": 292,
+          "detentions": 2,
+          "black_to_grey_limit": 28,
+          "grey_to_white_limit": 13,
+          "excess_factor": -1.61
+        },
+        {
+          "rank": 8,
+          "flag": "Finland",
+          "inspections": 349,
+          "detentions": 3,
+          "black_to_grey_limit": 33,
+          "grey_to_white_limit": 16,
+          "excess_factor": -1.59
+        },
+        {
+          "rank": 9,
+          "flag": "Netherlands",
+          "inspections": 2610,
+          "detentions": 46,
+          "black_to_grey_limit": 205,
+          "grey_to_white_limit": 161,
+          "excess_factor": -1.59
+        },
+        {
+          "rank": 10,
+          "flag": "Luxembourg",
+          "inspections": 217,
+          "detentions": 1,
+          "black_to_grey_limit": 22,
+          "grey_to_white_limit": 9,
+          "excess_factor": -1.58
+        },
+        {
+          "rank": 11,
+          "flag": "Italy",
+          "inspections": 817,
+          "detentions": 14,
+          "black_to_grey_limit": 70,
+          "grey_to_white_limit": 45,
+          "excess_factor": -1.45
+        },
+        {
+          "rank": 12,
+          "flag": "Hong Kong (China)",
+          "inspections": 1416,
+          "detentions": 28,
+          "black_to_grey_limit": 115,
+          "grey_to_white_limit": 83,
+          "excess_factor": -1.44
+        },
+        {
+          "rank": 13,
+          "flag": "Germany",
+          "inspections": 457,
+          "detentions": 8,
+          "black_to_grey_limit": 41,
+          "grey_to_white_limit": 23,
+          "excess_factor": -1.28
+        },
+        {
+          "rank": 14,
+          "flag": "Portugal",
+          "inspections": 2268,
+          "detentions": 58,
+          "black_to_grey_limit": 179,
+          "grey_to_white_limit": 138,
+          "excess_factor": -1.28
+        },
+        {
+          "rank": 15,
+          "flag": "Bahamas",
+          "inspections": 1604,
+          "detentions": 40,
+          "black_to_grey_limit": 130,
+          "grey_to_white_limit": 95,
+          "excess_factor": -1.26
+        },
+        {
+          "rank": 16,
+          "flag": "Malta",
+          "inspections": 3637,
+          "detentions": 101,
+          "black_to_grey_limit": 280,
+          "grey_to_white_limit": 229,
+          "excess_factor": -1.25
+        },
+        {
+          "rank": 17,
+          "flag": "Isle of Man, UK",
+          "inspections": 362,
+          "detentions": 6,
+          "black_to_grey_limit": 34,
+          "grey_to_white_limit": 17,
+          "excess_factor": -1.24
+        },
+        {
+          "rank": 18,
+          "flag": "Bermuda, UK",
+          "inspections": 141,
+          "detentions": 1,
+          "black_to_grey_limit": 15,
+          "grey_to_white_limit": 4,
+          "excess_factor": -1.13
+        },
+        {
+          "rank": 19,
+          "flag": "China",
+          "inspections": 294,
+          "detentions": 5,
+          "black_to_grey_limit": 28,
+          "grey_to_white_limit": 13,
+          "excess_factor": -1.12
+        },
+        {
+          "rank": 20,
+          "flag": "United States",
+          "inspections": 139,
+          "detentions": 1,
+          "black_to_grey_limit": 15,
+          "grey_to_white_limit": 4,
+          "excess_factor": -1.11
+        },
+        {
+          "rank": 21,
+          "flag": "Marshall Islands",
+          "inspections": 5166,
+          "detentions": 167,
+          "black_to_grey_limit": 392,
+          "grey_to_white_limit": 331,
+          "excess_factor": -1.11
+        },
+        {
+          "rank": 22,
+          "flag": "Cyprus",
+          "inspections": 2155,
+          "detentions": 65,
+          "black_to_grey_limit": 171,
+          "grey_to_white_limit": 131,
+          "excess_factor": -1.1
+        },
+        {
+          "rank": 23,
+          "flag": "Spain",
+          "inspections": 88,
+          "detentions": 0,
+          "black_to_grey_limit": 11,
+          "grey_to_white_limit": 2,
+          "excess_factor": -1.0
+        },
+        {
+          "rank": 24,
+          "flag": "United Kingdom",
+          "inspections": 696,
+          "detentions": 19,
+          "black_to_grey_limit": 60,
+          "grey_to_white_limit": 37,
+          "excess_factor": -0.99
+        },
+        {
+          "rank": 25,
+          "flag": "Greece",
+          "inspections": 544,
+          "detentions": 15,
+          "black_to_grey_limit": 48,
+          "grey_to_white_limit": 28,
+          "excess_factor": -0.91
+        },
+        {
+          "rank": 26,
+          "flag": "Saudi Arabia",
+          "inspections": 77,
+          "detentions": 0,
+          "black_to_grey_limit": 10,
+          "grey_to_white_limit": 1,
+          "excess_factor": -0.83
+        },
+        {
+          "rank": 27,
+          "flag": "Ireland",
+          "inspections": 72,
+          "detentions": 0,
+          "black_to_grey_limit": 9,
+          "grey_to_white_limit": 1,
+          "excess_factor": -0.73
+        },
+        {
+          "rank": 28,
+          "flag": "Gibraltar, UK",
+          "inspections": 250,
+          "detentions": 6,
+          "black_to_grey_limit": 25,
+          "grey_to_white_limit": 10,
+          "excess_factor": -0.73
+        },
+        {
+          "rank": 29,
+          "flag": "Liberia",
+          "inspections": 6319,
+          "detentions": 276,
+          "black_to_grey_limit": 476,
+          "grey_to_white_limit": 408,
+          "excess_factor": -0.73
+        },
+        {
+          "rank": 30,
+          "flag": "Croatia",
+          "inspections": 97,
+          "detentions": 1,
+          "black_to_grey_limit": 11,
+          "grey_to_white_limit": 2,
+          "excess_factor": -0.59
+        },
+        {
+          "rank": 31,
+          "flag": "Barbados",
+          "inspections": 957,
+          "detentions": 39,
+          "black_to_grey_limit": 80,
+          "grey_to_white_limit": 54,
+          "excess_factor": -0.56
+        },
+        {
+          "rank": 32,
+          "flag": "Türkiye",
+          "inspections": 611,
+          "detentions": 23,
+          "black_to_grey_limit": 54,
+          "grey_to_white_limit": 32,
+          "excess_factor": -0.56
+        },
+        {
+          "rank": 33,
+          "flag": "Estonia",
+          "inspections": 87,
+          "detentions": 1,
+          "black_to_grey_limit": 11,
+          "grey_to_white_limit": 2,
+          "excess_factor": -0.4
+        },
+        {
+          "rank": 34,
+          "flag": "Jersey, UK",
+          "inspections": 54,
+          "detentions": 0,
+          "black_to_grey_limit": 7,
+          "grey_to_white_limit": 0,
+          "excess_factor": -0.22
+        },
+        {
+          "rank": 35,
+          "flag": "Antigua and Barbuda",
+          "inspections": 1757,
+          "detentions": 95,
+          "black_to_grey_limit": 141,
+          "grey_to_white_limit": 105,
+          "excess_factor": -0.2
+        },
+        {
+          "rank": 36,
+          "flag": "Panama",
+          "inspections": 5731,
+          "detentions": 338,
+          "black_to_grey_limit": 433,
+          "grey_to_white_limit": 369,
+          "excess_factor": -0.19
+        },
+        {
+          "rank": 37,
+          "flag": "Faroe Islands",
+          "inspections": 225,
+          "detentions": 8,
+          "black_to_grey_limit": 23,
+          "grey_to_white_limit": 9,
+          "excess_factor": -0.18
+        },
+        {
+          "rank": 38,
+          "flag": "Belgium",
+          "inspections": 164,
+          "detentions": 5,
+          "black_to_grey_limit": 17,
+          "grey_to_white_limit": 6,
+          "excess_factor": -0.16
+        },
+        {
+          "rank": 39,
+          "flag": "Poland",
+          "inspections": 43,
+          "detentions": 0,
+          "black_to_grey_limit": 6,
+          "grey_to_white_limit": 0,
+          "excess_factor": 0.04
+        },
+        {
+          "rank": 40,
+          "flag": "Canada",
+          "inspections": 35,
+          "detentions": 0,
+          "black_to_grey_limit": 5,
+          "grey_to_white_limit": 0,
+          "excess_factor": 0.09
+        }
+      ]
+    },
+    "grey_list": {
+      "description": "Flags with detention performance between the black-to-grey and grey-to-white limits",
+      "entries": [
+        {
+          "rank": 41,
+          "flag": "Korea, Republic of",
+          "inspections": 219,
+          "detentions": 9,
+          "black_to_grey_limit": 22,
+          "grey_to_white_limit": 9,
+          "excess_factor": 0.03
+        },
+        {
+          "rank": 42,
+          "flag": "Lithuania",
+          "inspections": 107,
+          "detentions": 3,
+          "black_to_grey_limit": 12,
+          "grey_to_white_limit": 3,
+          "excess_factor": 0.04
+        },
+        {
+          "rank": 43,
+          "flag": "Latvia",
+          "inspections": 174,
+          "detentions": 8,
+          "black_to_grey_limit": 18,
+          "grey_to_white_limit": 6,
+          "excess_factor": 0.15
+        },
+        {
+          "rank": 44,
+          "flag": "India",
+          "inspections": 45,
+          "detentions": 1,
+          "black_to_grey_limit": 6,
+          "grey_to_white_limit": 0,
+          "excess_factor": 0.18
+        },
+        {
+          "rank": 45,
+          "flag": "Morocco",
+          "inspections": 43,
+          "detentions": 1,
+          "black_to_grey_limit": 6,
+          "grey_to_white_limit": 0,
+          "excess_factor": 0.19
+        },
+        {
+          "rank": 46,
+          "flag": "San Marino",
+          "inspections": 75,
+          "detentions": 3,
+          "black_to_grey_limit": 9,
+          "grey_to_white_limit": 1,
+          "excess_factor": 0.23
+        },
+        {
+          "rank": 47,
+          "flag": "Algeria",
+          "inspections": 71,
+          "detentions": 3,
+          "black_to_grey_limit": 9,
+          "grey_to_white_limit": 1,
+          "excess_factor": 0.26
+        },
+        {
+          "rank": 48,
+          "flag": "Sierra Leone",
+          "inspections": 172,
+          "detentions": 10,
+          "black_to_grey_limit": 18,
+          "grey_to_white_limit": 6,
+          "excess_factor": 0.33
+        },
+        {
+          "rank": 49,
+          "flag": "Thailand",
+          "inspections": 44,
+          "detentions": 2,
+          "black_to_grey_limit": 6,
+          "grey_to_white_limit": 0,
+          "excess_factor": 0.34
+        },
+        {
+          "rank": 50,
+          "flag": "Russian Federation",
+          "inspections": 83,
+          "detentions": 5,
+          "black_to_grey_limit": 10,
+          "grey_to_white_limit": 1,
+          "excess_factor": 0.41
+        },
+        {
+          "rank": 51,
+          "flag": "Lebanon",
+          "inspections": 35,
+          "detentions": 2,
+          "black_to_grey_limit": 5,
+          "grey_to_white_limit": 0,
+          "excess_factor": 0.42
+        },
+        {
+          "rank": 52,
+          "flag": "Philippines",
+          "inspections": 92,
+          "detentions": 6,
+          "black_to_grey_limit": 11,
+          "grey_to_white_limit": 2,
+          "excess_factor": 0.45
+        },
+        {
+          "rank": 53,
+          "flag": "Egypt",
+          "inspections": 38,
+          "detentions": 3,
+          "black_to_grey_limit": 6,
+          "grey_to_white_limit": 0,
+          "excess_factor": 0.56
+        },
+        {
+          "rank": 54,
+          "flag": "Saint Vincent and the Grenadines",
+          "inspections": 245,
+          "detentions": 19,
+          "black_to_grey_limit": 24,
+          "grey_to_white_limit": 10,
+          "excess_factor": 0.63
+        },
+        {
+          "rank": 55,
+          "flag": "Cook Islands",
+          "inspections": 68,
+          "detentions": 6,
+          "black_to_grey_limit": 9,
+          "grey_to_white_limit": 1,
+          "excess_factor": 0.66
+        },
+        {
+          "rank": 56,
+          "flag": "Albania",
+          "inspections": 48,
+          "detentions": 5,
+          "black_to_grey_limit": 7,
+          "grey_to_white_limit": 0,
+          "excess_factor": 0.74
+        },
+        {
+          "rank": 57,
+          "flag": "Bangladesh",
+          "inspections": 55,
+          "detentions": 6,
+          "black_to_grey_limit": 7,
+          "grey_to_white_limit": 0,
+          "excess_factor": 0.8
+        },
+        {
+          "rank": 58,
+          "flag": "Tuvalu",
+          "inspections": 32,
+          "detentions": 4,
+          "black_to_grey_limit": 5,
+          "grey_to_white_limit": 0,
+          "excess_factor": 0.81
+        },
+        {
+          "rank": 59,
+          "flag": "Tunisia",
+          "inspections": 31,
+          "detentions": 5,
+          "black_to_grey_limit": 5,
+          "grey_to_white_limit": 0,
+          "excess_factor": 1.0
+        }
+      ]
+    },
+    "black_list": {
+      "description": "Flags with significantly worse than average detention performance",
+      "entries": [
+        {
+          "rank": 60,
+          "flag": "Saint Kitts and Nevis",
+          "inspections": 372,
+          "detentions": 42,
+          "black_to_grey_limit": 35,
+          "risk": "Medium Risk",
+          "excess_factor": 1.59
+        },
+        {
+          "rank": 61,
+          "flag": "Palau",
+          "inspections": 517,
+          "detentions": 60,
+          "black_to_grey_limit": 46,
+          "risk": "Medium Risk",
+          "excess_factor": 1.8
+        },
+        {
+          "rank": 62,
+          "flag": "Togo",
+          "inspections": 213,
+          "detentions": 28,
+          "black_to_grey_limit": 22,
+          "risk": "Medium Risk",
+          "excess_factor": 1.87
+        },
+        {
+          "rank": 63,
+          "flag": "Guinea-Bissau",
+          "inspections": 83,
+          "detentions": 13,
+          "black_to_grey_limit": 10,
+          "risk": "Medium Risk",
+          "excess_factor": 1.91
+        },
+        {
+          "rank": 64,
+          "flag": "Belize",
+          "inspections": 259,
+          "detentions": 35,
+          "black_to_grey_limit": 25,
+          "risk": "Medium to High",
+          "excess_factor": 2.08
+        },
+        {
+          "rank": 65,
+          "flag": "Vanuatu",
+          "inspections": 339,
+          "detentions": 48,
+          "black_to_grey_limit": 32,
+          "risk": "Medium to High",
+          "excess_factor": 2.4
+        },
+        {
+          "rank": 66,
+          "flag": "Viet Nam",
+          "inspections": 44,
+          "detentions": 9,
+          "black_to_grey_limit": 6,
+          "risk": "Medium to High",
+          "excess_factor": 2.48
+        },
+        {
+          "rank": 67,
+          "flag": "Comoros",
+          "inspections": 254,
+          "detentions": 59,
+          "black_to_grey_limit": 25,
+          "risk": "Very High Risk",
+          "excess_factor": 4.99
+        },
+        {
+          "rank": 68,
+          "flag": "Tanzania, United Republic of",
+          "inspections": 205,
+          "detentions": 59,
+          "black_to_grey_limit": 21,
+          "risk": "Very High Risk",
+          "excess_factor": 6.55
+        },
+        {
+          "rank": 69,
+          "flag": "Cameroon",
+          "inspections": 138,
+          "detentions": 44,
+          "black_to_grey_limit": 15,
+          "risk": "Very High Risk",
+          "excess_factor": 7.14
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "total_flags": 69,
+    "white_list_count": 40,
+    "grey_list_count": 19,
+    "black_list_count": 10,
+    "yardstick": "7%",
+    "increment_decrement": "3%",
+    "z_value": 1.645,
+    "confidence_level": "95%"
+  }
+}
