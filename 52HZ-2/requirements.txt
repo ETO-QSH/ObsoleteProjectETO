@@ -1,0 +1,7 @@
+rarfile
+pandas
+pyarrow
+geopandas
+cartopy
+matplotlib
+pillow
